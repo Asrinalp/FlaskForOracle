@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job List</title>
+    <style>
+        /* Genel Stil */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+
+        /* Altıgen şekli sol üst köşeye yerleştirme */
+        .hexagon {
+            position: absolute;
+            top: -25px;
+            left: -20px;
+            width: 200px;
+            height: 88px;
+            background-color: #2196F3; /* Mavi */
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+        /* Yeni altıgen (koyu mavi) */
+        .hexagon-dark {
+            position: absolute;
+            top: 15px;
+            left: -20px;
+            width: 180px;
+            height: 80px;
+            background-color: #1976D2; /* Koyu mavi */
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            z-index: -1; /* Alttaki altıgenin arkasında olacak */
+        }
+
+        /* Tablo düzeni */
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2196F3; /* Mavi */
+            color: white;
+            cursor: pointer;
+        }
+
+        th:hover {
+            background-color: #1976D2; /* Koyu mavi */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Butonlar */
+        a {
+            color: #2196F3; /* Mavi */
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .add-button {
+            background-color: #2196F3; /* Mavi */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-button:hover {
+            background-color: #1976D2; /* Koyu mavi */
+        }
+
+        .add-button:active {
+            background-color: #2196F3; /* Mavi */
+        }
+
+        /* Sayfanın genel yerleşimi */
+        .content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        /* Başlık stili */
+        h1 {
+            color: #2196F3; /* Mavi */
+            margin-bottom: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        /* Çıkış Butonu */
+        .logout-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-button:hover {
+            background-color: #e53935;
+        }
+
+        .logout-button:active {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Altıgen şekli -->
+    <!-- Altıgenler -->
+    <div class="hexagon"></div>
+    <div class="hexagon-dark"></div>
+
+    <div class="content">
+        <h1>Job List</h1>
+
+        <!-- Çıkış Butonu -->
+        {% if 'email' in session %}
+        <div class="button-container">
+            <a href="{{ url_for('auth.logout') }}" class="logout-button">Log Out</a>
+        </div>
+        {% endif %}
+
+        <!-- Dashboard'a geri dönme butonu -->
+        <div class="button-container">
+            <a href="{{ url_for('dashboard.admin_dashboard') }}">Back to Dashboard</a>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Job ID</th>
+                    <th onclick="sortTable(1)">Job Title</th>
+                    <th onclick="sortTable(2)">Min Salary</th>
+                    <th onclick="sortTable(3)">Max Salary</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody data-sort-order="asc">
+                {% for job in jobs %}
+                <tr>
+                    <td>{{ job[0] }}</td>
+                    <td>{{ job[1] }}</td>
+                    <td>{{ job[2] }}</td>
+                    <td>{{ job[3] }}</td>
+                    <td>
+                        <a href="{{ url_for('jobs.edit_job', job_id=job[0]) }}">Edit</a> |
+                        <form action="{{ url_for('jobs.delete_job', job_id=job[0]) }}" method="POST" style="display:inline;">
+                            <button type="submit" style="background-color: red; color: white; border: none; padding: 5px 10px; font-size: 14px; border-radius: 4px;">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="button-container">
+            <a href="{{ url_for('jobs.add_job') }}" class="add-button">Add New Job</a>
+        </div>
+    </div>
+
+    <!-- Sıralama Fonksiyonu -->
+    <script>
+        function sortTable(columnIndex) {
+            const table = document.querySelector("table tbody");
+            const rows = Array.from(table.rows);
+            const isAscending = table.getAttribute("data-sort-order") === "asc";
+            table.setAttribute("data-sort-order", isAscending ? "desc" : "asc");
+
+            rows.sort((rowA, rowB) => {
+                const cellA = rowA.cells[columnIndex].innerText;
+                const cellB = rowB.cells[columnIndex].innerText;
+
+                const valueA = isNaN(cellA) ? cellA.toLowerCase() : parseFloat(cellA);
+                const valueB = isNaN(cellB) ? cellB.toLowerCase() : parseFloat(cellB);
+
+                if (valueA < valueB) return isAscending ? -1 : 1;
+                if (valueA > valueB) return isAscending ? 1 : -1;
+                return 0;
+            });
+
+            table.innerHTML = "";
+            rows.forEach(row => table.appendChild(row));
+        }
+    </script>
+
+</body>
+</html>

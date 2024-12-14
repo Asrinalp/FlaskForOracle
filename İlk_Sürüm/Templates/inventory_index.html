@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        /* General Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f8ff;
+        }
+
+        body {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .filters {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            gap: 10px;
+        }
+
+        .filter-box {
+            padding: 10px;
+            width: 50%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #fff;
+        }
+
+        .filter-box label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .filter-box select, .filter-box input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .add-button {
+            background-color: #40e0d0;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-button:hover {
+            background-color: #32b8a5;
+        }
+
+        .table {
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        .table th {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .table th:hover {
+            background-color: #0056b3;
+        }
+
+        .table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        .alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border-color: #bee5eb;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border-color: #ffeeba;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Inventory Management</h1>
+
+        <div class="back-link-container mb-3">
+            <a href="{{ url_for('dashboard.admin_dashboard') }}" class="back-link">Back to Admin Panel</a>
+        </div>
+
+        <!-- Add New Inventory Button -->
+        <div class="text-end mb-3">
+            <a href="{{ url_for('inventory.add_inventory') }}" class="add-button">Add New Inventory</a>
+        </div>
+
+        <!-- Filter Form -->
+        <form method="get" action="{{ url_for('inventory.inventory_index') }}">
+            <div class="filters">
+                <div class="filter-box">
+                    <label for="combined_filter">Filter by</label>
+                    <select name="combined_filter" id="combined_filter" onchange="updateSubFilter()">
+                        <option value="">-- Select Filter --</option>
+                        <option value="product_name" {% if combined_filter == 'product_name' %}selected{% endif %}>Product Name</option>
+                        <option value="warehouse_name" {% if combined_filter == 'warehouse_name' %}selected{% endif %}>Warehouse City</option>
+                    </select>
+                </div>
+
+                <div class="filter-box hidden" id="sub_filter_box">
+                    <label for="sub_filter">Select Option</label>
+                    <select name="sub_filter" id="sub_filter">
+                        <!-- Options dynamically populated based on filter -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <div class="filter-button-container">
+                    <button type="submit" class="add-button">Apply Filter</button>
+                </div>
+                <div class="reset-button-container">
+                    <button type="reset" class="add-button" onclick="window.location.href='{{ url_for('inventory.inventory_index') }}'">Reset</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Inventory Table -->
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Warehouse City</th>
+                    <th>Quantity on Hand</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in inventory_data %}
+                <tr>
+                    <td>{{ item[0] }}</td>
+                    <td>{{ item[1] }}</td>
+                    <td>{{ item[2] }}</td>
+                    <td>{{ item[3] }}</td>
+                    <td>
+                        <form method="POST" action="{{ url_for('inventory.delete_inventory', product_id=item[0]) }}" class="d-inline">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+
+        {% if inventory_data|length == 0 %}
+        <div class="alert alert-warning text-center">No inventory data available.</div>
+        {% endif %}
+    </div>
+
+    <script>
+        function updateSubFilter() {
+            const combinedFilter = document.getElementById('combined_filter');
+            const subFilterBox = document.getElementById('sub_filter_box');
+            const subFilter = document.getElementById('sub_filter');
+
+            // Clear previous options
+            subFilter.innerHTML = '';
+
+            if (combinedFilter.value === 'product_name') {
+                {% for product in product_name %}
+                subFilter.innerHTML += `<option value="{{ product[0] }}" {% if sub_filter == product[0] %}selected{% endif %}>{{ product[1] }}</option>`;
+                {% endfor %}
+            } else if (combinedFilter.value === 'warehouse_name') {
+                {% for warehouse in warehouses %}
+                subFilter.innerHTML += `<option value="{{ warehouse[0] }}" {% if sub_filter == warehouse[0] %}selected{% endif %}>{{ warehouse[1] }}</option>`;
+                {% endfor %}
+            }
+
+            // Show or hide the sub filter box
+            subFilterBox.classList.toggle('hidden', !combinedFilter.value);
+        }
+    </script>
+</body>
+
+</html>

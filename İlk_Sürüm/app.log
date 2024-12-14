@@ -1,0 +1,874 @@
+2024-12-14 09:59:44,453 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-12-14 09:59:44,453 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 09:59:44,455 - INFO -  * Restarting with stat
+2024-12-14 09:59:46,335 - WARNING -  * Debugger is active!
+2024-12-14 09:59:46,342 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 09:59:47,316 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 09:59:47,334 - INFO - 127.0.0.1 - - [14/Dec/2024 09:59:47] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 09:59:48,245 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 09:59:48,268 - INFO - 127.0.0.1 - - [14/Dec/2024 09:59:48] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 09:59:50,695 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 09:59:50,696 - INFO - 127.0.0.1 - - [14/Dec/2024 09:59:50] "GET /inventory/inventory?combined_filter=warehouse_name&sub_filter=3 HTTP/1.1" 200 -
+2024-12-14 10:01:38,660 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 10:01:38,661 - INFO - 127.0.0.1 - - [14/Dec/2024 10:01:38] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 10:01:39,440 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 10:01:39,456 - INFO - 127.0.0.1 - - [14/Dec/2024 10:01:39] "[35m[1mGET /inventory/inventory HTTP/1.1[0m" 500 -
+2024-12-14 10:01:39,528 - INFO - 127.0.0.1 - - [14/Dec/2024 10:01:39] "[36mGET /inventory/inventory?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-14 10:01:39,539 - INFO - 127.0.0.1 - - [14/Dec/2024 10:01:39] "[36mGET /inventory/inventory?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-14 10:01:39,556 - INFO - 127.0.0.1 - - [14/Dec/2024 10:01:39] "GET /inventory/inventory?__debugger__=yes&cmd=resource&f=console.png&s=XuhPH3EcvYXZHw2mYFTL HTTP/1.1" 200 -
+2024-12-14 10:01:46,071 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\app.py', reloading
+2024-12-14 10:02:16,685 - INFO -  * Restarting with stat
+2024-12-14 10:02:18,616 - WARNING -  * Debugger is active!
+2024-12-14 10:02:18,622 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 10:02:18,980 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 10:02:18,981 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 10:02:19,015 - INFO - 127.0.0.1 - - [14/Dec/2024 10:02:19] "[35m[1mGET /inventory/inventory HTTP/1.1[0m" 500 -
+2024-12-14 10:02:19,016 - INFO - 127.0.0.1 - - [14/Dec/2024 10:02:19] "[35m[1mGET /inventory/inventory HTTP/1.1[0m" 500 -
+2024-12-14 10:02:19,083 - INFO - 127.0.0.1 - - [14/Dec/2024 10:02:19] "[36mGET /inventory/inventory?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-14 10:02:19,095 - INFO - 127.0.0.1 - - [14/Dec/2024 10:02:19] "[36mGET /inventory/inventory?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-14 10:02:19,112 - INFO - 127.0.0.1 - - [14/Dec/2024 10:02:19] "GET /inventory/inventory?__debugger__=yes&cmd=resource&f=console.png&s=lbcxzizLqFW2cnqDymh9 HTTP/1.1" 200 -
+2024-12-14 10:02:19,125 - INFO - 127.0.0.1 - - [14/Dec/2024 10:02:19] "[36mGET /inventory/inventory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-12-14 10:02:40,993 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 10:02:41,017 - INFO - 127.0.0.1 - - [14/Dec/2024 10:02:41] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 10:02:43,254 - ERROR - Invalid filter combination: warehouses, 1
+2024-12-14 10:02:43,255 - INFO - 127.0.0.1 - - [14/Dec/2024 10:02:43] "[32mGET /inventory/inventory?combined_filter=warehouses&sub_filter=1 HTTP/1.1[0m" 302 -
+2024-12-14 10:02:43,328 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 10:02:43,336 - INFO - 127.0.0.1 - - [14/Dec/2024 10:02:43] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 10:02:44,242 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 10:02:44,251 - INFO - 127.0.0.1 - - [14/Dec/2024 10:02:44] "GET /inventory/inventory?combined_filter= HTTP/1.1" 200 -
+2024-12-14 10:03:10,664 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\inventory.py', reloading
+2024-12-14 10:03:15,438 - INFO -  * Restarting with stat
+2024-12-14 10:03:17,262 - WARNING -  * Debugger is active!
+2024-12-14 10:03:17,266 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 10:03:17,336 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 10:03:17,355 - INFO - 127.0.0.1 - - [14/Dec/2024 10:03:17] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 10:03:18,077 - INFO - 127.0.0.1 - - [14/Dec/2024 10:03:18] "GET /sales/ HTTP/1.1" 200 -
+2024-12-14 10:03:19,035 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 10:03:19,036 - INFO - 127.0.0.1 - - [14/Dec/2024 10:03:19] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 10:03:19,707 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 10:03:19,737 - INFO - 127.0.0.1 - - [14/Dec/2024 10:03:19] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 10:03:21,585 - ERROR - Invalid filter combination: warehouses, 2
+2024-12-14 10:03:21,586 - INFO - 127.0.0.1 - - [14/Dec/2024 10:03:21] "[32mGET /inventory/inventory?combined_filter=warehouses&sub_filter=2 HTTP/1.1[0m" 302 -
+2024-12-14 10:03:21,641 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 10:03:21,649 - INFO - 127.0.0.1 - - [14/Dec/2024 10:03:21] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 10:03:36,481 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\inventory.py', reloading
+2024-12-14 10:03:38,778 - INFO -  * Restarting with stat
+2024-12-14 10:03:40,590 - WARNING -  * Debugger is active!
+2024-12-14 10:03:40,595 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 10:03:40,663 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 10:03:40,682 - INFO - 127.0.0.1 - - [14/Dec/2024 10:03:40] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 10:03:42,254 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 10:03:42,276 - INFO - 127.0.0.1 - - [14/Dec/2024 10:03:42] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 10:03:44,233 - ERROR - Invalid filter combination: warehouses, 3
+2024-12-14 10:03:44,234 - INFO - 127.0.0.1 - - [14/Dec/2024 10:03:44] "[32mGET /inventory/inventory?combined_filter=warehouses&sub_filter=3 HTTP/1.1[0m" 302 -
+2024-12-14 10:03:44,296 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 10:03:44,305 - INFO - 127.0.0.1 - - [14/Dec/2024 10:03:44] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 10:03:48,154 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\app.py', reloading
+2024-12-14 12:45:54,786 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-12-14 12:45:54,786 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 12:45:54,788 - INFO -  * Restarting with stat
+2024-12-14 12:45:56,599 - WARNING -  * Debugger is active!
+2024-12-14 12:45:56,604 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 12:45:58,052 - WARNING - Unauthorized access attempt to jobs index.
+2024-12-14 12:45:58,053 - INFO - 127.0.0.1 - - [14/Dec/2024 12:45:58] "[32mGET / HTTP/1.1[0m" 302 -
+2024-12-14 12:45:58,085 - INFO - 127.0.0.1 - - [14/Dec/2024 12:45:58] "GET /login HTTP/1.1" 200 -
+2024-12-14 12:45:58,732 - INFO - 127.0.0.1 - - [14/Dec/2024 12:45:58] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-12-14 12:46:05,681 - DEBUG - Login attempt with email: admin@example.com
+2024-12-14 12:46:05,682 - INFO - User admin@example.com logged in successfully with role Admin.
+2024-12-14 12:46:05,683 - INFO - 127.0.0.1 - - [14/Dec/2024 12:46:05] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-14 12:46:05,698 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 12:46:05,711 - INFO - 127.0.0.1 - - [14/Dec/2024 12:46:05] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 12:46:06,545 - INFO - 127.0.0.1 - - [14/Dec/2024 12:46:06] "GET /users/personal_info HTTP/1.1" 200 -
+2024-12-14 12:48:16,865 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\auth.py', reloading
+2024-12-14 12:48:18,637 - INFO -  * Restarting with stat
+2024-12-14 12:48:20,788 - WARNING -  * Debugger is active!
+2024-12-14 12:48:20,793 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 12:48:27,273 - INFO - User logged out.
+2024-12-14 12:48:27,276 - INFO - 127.0.0.1 - - [14/Dec/2024 12:48:27] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-14 12:48:27,301 - INFO - 127.0.0.1 - - [14/Dec/2024 12:48:27] "GET /login HTTP/1.1" 200 -
+2024-12-14 12:53:16,110 - DEBUG - Login attempt with email: admin@example.com
+2024-12-14 12:53:16,111 - INFO - User admin@example.com logged in successfully with role Admin.
+2024-12-14 12:53:16,112 - INFO - 127.0.0.1 - - [14/Dec/2024 12:53:16] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-14 12:53:16,122 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 12:53:16,130 - INFO - 127.0.0.1 - - [14/Dec/2024 12:53:16] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 12:53:17,069 - INFO - 127.0.0.1 - - [14/Dec/2024 12:53:17] "GET /users/personal_info HTTP/1.1" 200 -
+2024-12-14 12:54:28,103 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\auth.py', reloading
+2024-12-14 12:54:34,392 - INFO -  * Restarting with stat
+2024-12-14 12:56:44,222 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-12-14 12:56:44,223 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 12:56:44,225 - INFO -  * Restarting with stat
+2024-12-14 12:56:46,014 - WARNING -  * Debugger is active!
+2024-12-14 12:56:46,018 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 12:56:46,373 - INFO - User admin@example.com accessed jobs index.
+2024-12-14 12:56:46,394 - INFO - 127.0.0.1 - - [14/Dec/2024 12:56:46] "GET / HTTP/1.1" 200 -
+2024-12-14 12:56:47,544 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 12:56:47,552 - INFO - 127.0.0.1 - - [14/Dec/2024 12:56:47] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 12:56:48,457 - INFO - User logged out.
+2024-12-14 12:56:48,457 - INFO - 127.0.0.1 - - [14/Dec/2024 12:56:48] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-14 12:56:48,469 - INFO - 127.0.0.1 - - [14/Dec/2024 12:56:48] "GET /login HTTP/1.1" 200 -
+2024-12-14 13:01:44,810 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-12-14 13:01:44,811 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 13:01:44,813 - INFO -  * Restarting with stat
+2024-12-14 13:01:46,503 - WARNING -  * Debugger is active!
+2024-12-14 13:01:46,508 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:01:46,574 - WARNING - Unauthorized access attempt to jobs index.
+2024-12-14 13:01:46,575 - INFO - 127.0.0.1 - - [14/Dec/2024 13:01:46] "[32mGET / HTTP/1.1[0m" 302 -
+2024-12-14 13:01:46,597 - INFO - 127.0.0.1 - - [14/Dec/2024 13:01:46] "GET /login HTTP/1.1" 200 -
+2024-12-14 13:02:02,539 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\auth.py', reloading
+2024-12-14 13:02:04,703 - INFO -  * Restarting with stat
+2024-12-14 13:02:06,503 - WARNING -  * Debugger is active!
+2024-12-14 13:02:06,508 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:02:08,750 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\auth.py', reloading
+2024-12-14 13:02:15,565 - INFO -  * Restarting with stat
+2024-12-14 13:02:17,276 - WARNING -  * Debugger is active!
+2024-12-14 13:02:17,281 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:02:31,293 - DEBUG - Login attempt with email: admin@example.com
+2024-12-14 13:02:31,294 - INFO - User admin@example.com logged in successfully with role Admin.
+2024-12-14 13:02:31,295 - INFO - 127.0.0.1 - - [14/Dec/2024 13:02:31] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-14 13:02:31,304 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:02:31,321 - INFO - 127.0.0.1 - - [14/Dec/2024 13:02:31] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:02:32,547 - INFO - User logged out.
+2024-12-14 13:02:32,548 - INFO - 127.0.0.1 - - [14/Dec/2024 13:02:32] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-14 13:02:32,559 - INFO - 127.0.0.1 - - [14/Dec/2024 13:02:32] "GET /login HTTP/1.1" 200 -
+2024-12-14 13:07:04,884 - DEBUG - Login attempt with email: admin@example.com
+2024-12-14 13:07:04,884 - INFO - User admin@example.com logged in successfully with role Admin.
+2024-12-14 13:07:04,886 - INFO - 127.0.0.1 - - [14/Dec/2024 13:07:04] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-14 13:07:04,896 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:07:04,899 - INFO - 127.0.0.1 - - [14/Dec/2024 13:07:04] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:07:06,081 - INFO - User logged out.
+2024-12-14 13:07:06,082 - INFO - 127.0.0.1 - - [14/Dec/2024 13:07:06] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-14 13:07:06,092 - INFO - 127.0.0.1 - - [14/Dec/2024 13:07:06] "GET /login HTTP/1.1" 200 -
+2024-12-14 13:07:41,378 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\auth.py', reloading
+2024-12-14 13:07:43,243 - INFO -  * Restarting with stat
+2024-12-14 13:07:45,163 - WARNING -  * Debugger is active!
+2024-12-14 13:07:45,169 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:07:48,325 - INFO - 127.0.0.1 - - [14/Dec/2024 13:07:48] "[33mGET /auth/google-callback HTTP/1.1[0m" 404 -
+2024-12-14 13:08:07,509 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\auth.py', reloading
+2024-12-14 13:08:11,161 - INFO -  * Restarting with stat
+2024-12-14 13:08:12,962 - WARNING -  * Debugger is active!
+2024-12-14 13:08:12,967 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:08:29,996 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\auth.py', reloading
+2024-12-14 13:08:31,714 - INFO -  * Restarting with stat
+2024-12-14 13:08:33,489 - WARNING -  * Debugger is active!
+2024-12-14 13:08:33,494 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:08:41,183 - DEBUG - Login attempt with email: admin@example.com
+2024-12-14 13:08:41,183 - INFO - User admin@example.com logged in successfully with role Admin.
+2024-12-14 13:08:41,185 - INFO - 127.0.0.1 - - [14/Dec/2024 13:08:41] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-14 13:08:41,194 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:08:41,211 - INFO - 127.0.0.1 - - [14/Dec/2024 13:08:41] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:08:42,477 - INFO - User logged out.
+2024-12-14 13:08:42,478 - INFO - 127.0.0.1 - - [14/Dec/2024 13:08:42] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-14 13:08:42,513 - INFO - 127.0.0.1 - - [14/Dec/2024 13:08:42] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+2024-12-14 13:08:42,595 - INFO - 127.0.0.1 - - [14/Dec/2024 13:08:42] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-14 13:08:42,599 - INFO - 127.0.0.1 - - [14/Dec/2024 13:08:42] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-14 13:08:42,635 - INFO - 127.0.0.1 - - [14/Dec/2024 13:08:42] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=PQWgiQpvWQLzKlGdMyBa HTTP/1.1" 200 -
+2024-12-14 13:08:42,652 - INFO - 127.0.0.1 - - [14/Dec/2024 13:08:42] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-12-14 13:08:55,820 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\auth.py', reloading
+2024-12-14 13:08:59,064 - INFO -  * Restarting with stat
+2024-12-14 13:09:00,915 - WARNING -  * Debugger is active!
+2024-12-14 13:09:00,920 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:09:01,282 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:01] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+2024-12-14 13:09:01,356 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:01] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-14 13:09:01,358 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:01] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-14 13:09:01,376 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:01] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=nf7BmYzVRYSS6yxdsOFy HTTP/1.1" 200 -
+2024-12-14 13:09:01,387 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:01] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-12-14 13:09:02,355 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:02] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+2024-12-14 13:09:02,384 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:02] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-14 13:09:02,385 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:02] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-14 13:09:02,400 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:02] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png&s=nf7BmYzVRYSS6yxdsOFy HTTP/1.1[0m" 304 -
+2024-12-14 13:09:02,413 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:02] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-12-14 13:09:03,148 - WARNING - Unauthorized access attempt to admin dashboard.
+2024-12-14 13:09:03,149 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:03] "[32mGET /admin_dashboard HTTP/1.1[0m" 302 -
+2024-12-14 13:09:05,444 - INFO - User logged out.
+2024-12-14 13:09:05,445 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:05] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-14 13:09:05,465 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:05] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+2024-12-14 13:09:05,498 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:05] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-14 13:09:05,504 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:05] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-14 13:09:05,519 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:05] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png&s=nf7BmYzVRYSS6yxdsOFy HTTP/1.1[0m" 304 -
+2024-12-14 13:09:08,461 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\app.py', reloading
+2024-12-14 13:09:18,474 - INFO -  * Restarting with stat
+2024-12-14 13:09:20,325 - WARNING -  * Debugger is active!
+2024-12-14 13:09:20,330 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:09:20,400 - WARNING - Unauthorized access attempt to admin dashboard.
+2024-12-14 13:09:20,400 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:20] "[32mGET /admin_dashboard HTTP/1.1[0m" 302 -
+2024-12-14 13:09:20,426 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:20] "GET /login HTTP/1.1" 200 -
+2024-12-14 13:09:24,270 - DEBUG - Login attempt with email: admin@example.com
+2024-12-14 13:09:24,270 - INFO - User admin@example.com logged in successfully with role Admin.
+2024-12-14 13:09:24,272 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:24] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-14 13:09:24,280 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:09:24,290 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:24] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:09:25,674 - INFO - User logged out.
+2024-12-14 13:09:25,675 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:25] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-14 13:09:25,684 - INFO - 127.0.0.1 - - [14/Dec/2024 13:09:25] "GET /login HTTP/1.1" 200 -
+2024-12-14 13:12:45,779 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\auth.py', reloading
+2024-12-14 13:13:36,785 - INFO -  * Restarting with stat
+2024-12-14 13:13:38,687 - WARNING -  * Debugger is active!
+2024-12-14 13:13:38,692 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:13:53,126 - INFO - 127.0.0.1 - - [14/Dec/2024 13:13:53] "[33mGET /auth/google-callback HTTP/1.1[0m" 404 -
+2024-12-14 13:14:50,843 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\auth.py', reloading
+2024-12-14 13:14:56,410 - INFO -  * Restarting with stat
+2024-12-14 13:14:58,558 - WARNING -  * Debugger is active!
+2024-12-14 13:14:58,564 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:15:02,332 - DEBUG - Login attempt with email: admin@example.com
+2024-12-14 13:15:02,333 - INFO - User admin@example.com logged in successfully with role Admin.
+2024-12-14 13:15:02,334 - INFO - 127.0.0.1 - - [14/Dec/2024 13:15:02] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-14 13:15:02,344 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:15:02,362 - INFO - 127.0.0.1 - - [14/Dec/2024 13:15:02] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:15:03,714 - INFO - User logged out.
+2024-12-14 13:15:03,715 - INFO - 127.0.0.1 - - [14/Dec/2024 13:15:03] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-14 13:15:03,728 - INFO - 127.0.0.1 - - [14/Dec/2024 13:15:03] "GET /login HTTP/1.1" 200 -
+2024-12-14 13:15:16,824 - INFO - 127.0.0.1 - - [14/Dec/2024 13:15:16] "[33mGET /auth/google-callback HTTP/1.1[0m" 404 -
+2024-12-14 13:16:37,511 - INFO - 127.0.0.1 - - [14/Dec/2024 13:16:37] "GET /users/personal_info HTTP/1.1" 200 -
+2024-12-14 13:17:45,032 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-12-14 13:17:45,033 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 13:17:45,035 - INFO -  * Restarting with stat
+2024-12-14 13:17:46,804 - WARNING -  * Debugger is active!
+2024-12-14 13:17:46,809 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:17:47,736 - WARNING - Unauthorized access attempt to jobs index.
+2024-12-14 13:17:47,737 - INFO - 127.0.0.1 - - [14/Dec/2024 13:17:47] "[32mGET / HTTP/1.1[0m" 302 -
+2024-12-14 13:17:47,769 - INFO - 127.0.0.1 - - [14/Dec/2024 13:17:47] "GET /login HTTP/1.1" 200 -
+2024-12-14 13:18:37,077 - DEBUG - Login attempt with email: admin@example.com
+2024-12-14 13:18:37,077 - INFO - User admin@example.com logged in successfully with role Admin.
+2024-12-14 13:18:37,079 - INFO - 127.0.0.1 - - [14/Dec/2024 13:18:37] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-14 13:18:37,087 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:18:37,095 - INFO - 127.0.0.1 - - [14/Dec/2024 13:18:37] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:18:38,145 - INFO - 127.0.0.1 - - [14/Dec/2024 13:18:38] "GET /users/personal_info HTTP/1.1" 200 -
+2024-12-14 13:20:14,064 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\auth.py', reloading
+2024-12-14 13:20:15,917 - INFO -  * Restarting with stat
+2024-12-14 13:20:17,773 - WARNING -  * Debugger is active!
+2024-12-14 13:20:17,778 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:20:21,134 - INFO - User logged out.
+2024-12-14 13:20:21,136 - INFO - 127.0.0.1 - - [14/Dec/2024 13:20:21] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-14 13:20:21,158 - INFO - 127.0.0.1 - - [14/Dec/2024 13:20:21] "GET /login HTTP/1.1" 200 -
+2024-12-14 13:24:02,337 - DEBUG - Login attempt with email: admin@example.com
+2024-12-14 13:24:02,338 - INFO - User admin@example.com logged in successfully with role Admin.
+2024-12-14 13:24:02,339 - INFO - 127.0.0.1 - - [14/Dec/2024 13:24:02] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-14 13:24:02,347 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:24:02,355 - INFO - 127.0.0.1 - - [14/Dec/2024 13:24:02] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:24:03,365 - INFO - 127.0.0.1 - - [14/Dec/2024 13:24:03] "GET /users/personal_info HTTP/1.1" 200 -
+2024-12-14 13:24:11,880 - INFO - 127.0.0.1 - - [14/Dec/2024 13:24:11] "GET /users/personal_info HTTP/1.1" 200 -
+2024-12-14 13:24:13,852 - INFO - 127.0.0.1 - - [14/Dec/2024 13:24:13] "GET /users/personal_info HTTP/1.1" 200 -
+2024-12-14 13:24:14,346 - INFO - 127.0.0.1 - - [14/Dec/2024 13:24:14] "GET /users/all_users HTTP/1.1" 200 -
+2024-12-14 13:24:19,588 - INFO - 127.0.0.1 - - [14/Dec/2024 13:24:19] "GET /users/all_users HTTP/1.1" 200 -
+2024-12-14 13:24:20,762 - INFO - 127.0.0.1 - - [14/Dec/2024 13:24:20] "GET /users/all_users HTTP/1.1" 200 -
+2024-12-14 13:24:21,282 - INFO - 127.0.0.1 - - [14/Dec/2024 13:24:21] "GET /users/personal_info HTTP/1.1" 200 -
+2024-12-14 13:24:21,300 - INFO - 127.0.0.1 - - [14/Dec/2024 13:24:21] "GET /users/personal_info HTTP/1.1" 200 -
+2024-12-14 13:24:22,059 - INFO - 127.0.0.1 - - [14/Dec/2024 13:24:22] "GET /users/all_users HTTP/1.1" 200 -
+2024-12-14 13:24:40,328 - INFO - User logged out.
+2024-12-14 13:24:40,329 - INFO - 127.0.0.1 - - [14/Dec/2024 13:24:40] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-14 13:24:40,339 - INFO - 127.0.0.1 - - [14/Dec/2024 13:24:40] "GET /login HTTP/1.1" 200 -
+2024-12-14 13:26:01,739 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\auth.py', reloading
+2024-12-14 13:26:02,958 - INFO -  * Restarting with stat
+2024-12-14 13:26:04,782 - WARNING -  * Debugger is active!
+2024-12-14 13:26:04,788 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:26:55,776 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\auth.py', reloading
+2024-12-14 13:26:57,484 - INFO -  * Restarting with stat
+2024-12-14 13:26:59,261 - WARNING -  * Debugger is active!
+2024-12-14 13:26:59,266 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:28:49,569 - DEBUG - Login attempt with email: admin@example.com
+2024-12-14 13:28:49,569 - INFO - User admin@example.com logged in successfully with role Admin.
+2024-12-14 13:28:49,571 - INFO - 127.0.0.1 - - [14/Dec/2024 13:28:49] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-14 13:28:49,581 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:28:49,599 - INFO - 127.0.0.1 - - [14/Dec/2024 13:28:49] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:28:50,862 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 13:28:50,891 - INFO - 127.0.0.1 - - [14/Dec/2024 13:28:50] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 13:28:53,456 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 13:28:53,457 - INFO - 127.0.0.1 - - [14/Dec/2024 13:28:53] "GET /inventory/inventory?combined_filter=warehouse_name&sub_filter=2 HTTP/1.1" 200 -
+2024-12-14 13:28:58,061 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 13:28:58,070 - INFO - 127.0.0.1 - - [14/Dec/2024 13:28:58] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 13:29:31,591 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 13:29:31,593 - INFO - 127.0.0.1 - - [14/Dec/2024 13:29:31] "GET /inventory/inventory?combined_filter=product_name&sub_filter=2350 HTTP/1.1" 200 -
+2024-12-14 13:29:32,700 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 13:29:32,708 - INFO - 127.0.0.1 - - [14/Dec/2024 13:29:32] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 13:29:40,375 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 13:29:40,376 - INFO - 127.0.0.1 - - [14/Dec/2024 13:29:40] "GET /inventory/inventory?combined_filter=product_name&sub_filter=3077 HTTP/1.1" 200 -
+2024-12-14 13:29:41,578 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 13:29:41,587 - INFO - 127.0.0.1 - - [14/Dec/2024 13:29:41] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 13:29:43,321 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 13:29:43,323 - INFO - 127.0.0.1 - - [14/Dec/2024 13:29:43] "GET /inventory/inventory?combined_filter=warehouse_name&sub_filter=4 HTTP/1.1" 200 -
+2024-12-14 13:29:44,269 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 13:29:44,277 - INFO - 127.0.0.1 - - [14/Dec/2024 13:29:44] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 13:29:49,903 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\auth.py', reloading
+2024-12-14 13:29:54,127 - INFO -  * Restarting with stat
+2024-12-14 13:30:09,167 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-12-14 13:30:09,168 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 13:30:09,169 - INFO -  * Restarting with stat
+2024-12-14 13:30:11,116 - WARNING -  * Debugger is active!
+2024-12-14 13:30:11,121 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:30:11,344 - INFO - User admin@example.com accessed jobs index.
+2024-12-14 13:30:11,365 - INFO - 127.0.0.1 - - [14/Dec/2024 13:30:11] "GET / HTTP/1.1" 200 -
+2024-12-14 13:30:12,492 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:30:12,502 - INFO - 127.0.0.1 - - [14/Dec/2024 13:30:12] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:31:22,183 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\jobs.py', reloading
+2024-12-14 13:31:23,134 - INFO -  * Restarting with stat
+2024-12-14 13:31:24,916 - WARNING -  * Debugger is active!
+2024-12-14 13:31:24,920 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:31:27,125 - INFO - User admin@example.com accessed jobs index.
+2024-12-14 13:31:27,146 - INFO - 127.0.0.1 - - [14/Dec/2024 13:31:27] "GET / HTTP/1.1" 200 -
+2024-12-14 13:31:30,292 - INFO - 127.0.0.1 - - [14/Dec/2024 13:31:30] "GET /add HTTP/1.1" 200 -
+2024-12-14 13:31:31,198 - INFO - User admin@example.com accessed jobs index.
+2024-12-14 13:31:31,200 - INFO - 127.0.0.1 - - [14/Dec/2024 13:31:31] "GET / HTTP/1.1" 200 -
+2024-12-14 13:31:32,878 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:31:32,886 - INFO - 127.0.0.1 - - [14/Dec/2024 13:31:32] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:31:33,833 - INFO - 127.0.0.1 - - [14/Dec/2024 13:31:33] "GET /sales/ HTTP/1.1" 200 -
+2024-12-14 13:31:34,958 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:31:34,959 - INFO - 127.0.0.1 - - [14/Dec/2024 13:31:34] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:31:35,478 - INFO - 127.0.0.1 - - [14/Dec/2024 13:31:35] "GET /sales/ HTTP/1.1" 200 -
+2024-12-14 13:31:36,966 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:31:36,967 - INFO - 127.0.0.1 - - [14/Dec/2024 13:31:36] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:31:37,730 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:31:37,750 - INFO - 127.0.0.1 - - [14/Dec/2024 13:31:37] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:31:42,733 - INFO - 127.0.0.1 - - [14/Dec/2024 13:31:42] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:31:47,553 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:31:47,558 - INFO - 127.0.0.1 - - [14/Dec/2024 13:31:47] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:31:48,184 - INFO - 127.0.0.1 - - [14/Dec/2024 13:31:48] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:34:01,743 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\product_information.py', reloading
+2024-12-14 13:34:03,574 - INFO -  * Restarting with stat
+2024-12-14 13:34:05,595 - WARNING -  * Debugger is active!
+2024-12-14 13:34:05,601 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:34:58,367 - INFO - 127.0.0.1 - - [14/Dec/2024 13:34:58] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:35:12,420 - INFO - 127.0.0.1 - - [14/Dec/2024 13:35:12] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:35:13,070 - INFO - 127.0.0.1 - - [14/Dec/2024 13:35:13] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:35:13,493 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:35:13,502 - INFO - 127.0.0.1 - - [14/Dec/2024 13:35:13] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:35:15,216 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:35:15,231 - INFO - 127.0.0.1 - - [14/Dec/2024 13:35:15] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:35:16,126 - INFO - 127.0.0.1 - - [14/Dec/2024 13:35:16] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:35:24,117 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\product_information.py', reloading
+2024-12-14 13:35:27,757 - INFO -  * Restarting with stat
+2024-12-14 13:35:29,598 - WARNING -  * Debugger is active!
+2024-12-14 13:35:29,604 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:35:29,796 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:35:29,814 - INFO - 127.0.0.1 - - [14/Dec/2024 13:35:29] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:35:32,074 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:35:32,088 - INFO - 127.0.0.1 - - [14/Dec/2024 13:35:32] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:35:32,743 - INFO - 127.0.0.1 - - [14/Dec/2024 13:35:32] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:35:49,255 - INFO - 127.0.0.1 - - [14/Dec/2024 13:35:49] "[35m[1mPOST /product/product/add HTTP/1.1[0m" 500 -
+2024-12-14 13:35:49,332 - INFO - 127.0.0.1 - - [14/Dec/2024 13:35:49] "[36mGET /product/product/add?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-14 13:35:49,332 - INFO - 127.0.0.1 - - [14/Dec/2024 13:35:49] "[36mGET /product/product/add?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-14 13:35:49,363 - INFO - 127.0.0.1 - - [14/Dec/2024 13:35:49] "GET /product/product/add?__debugger__=yes&cmd=resource&f=console.png&s=iKNVKWvPJuj3SMURe3vE HTTP/1.1" 200 -
+2024-12-14 13:35:49,375 - INFO - 127.0.0.1 - - [14/Dec/2024 13:35:49] "[36mGET /product/product/add?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-12-14 13:36:40,260 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:36:40,262 - INFO - 127.0.0.1 - - [14/Dec/2024 13:36:40] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:36:41,919 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:36:41,923 - INFO - 127.0.0.1 - - [14/Dec/2024 13:36:41] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:36:42,642 - INFO - 127.0.0.1 - - [14/Dec/2024 13:36:42] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:36:56,428 - INFO - 127.0.0.1 - - [14/Dec/2024 13:36:56] "[35m[1mPOST /product/product/add HTTP/1.1[0m" 500 -
+2024-12-14 13:36:56,457 - INFO - 127.0.0.1 - - [14/Dec/2024 13:36:56] "[36mGET /product/product/add?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-14 13:36:56,462 - INFO - 127.0.0.1 - - [14/Dec/2024 13:36:56] "[36mGET /product/product/add?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-14 13:36:56,477 - INFO - 127.0.0.1 - - [14/Dec/2024 13:36:56] "[36mGET /product/product/add?__debugger__=yes&cmd=resource&f=console.png&s=iKNVKWvPJuj3SMURe3vE HTTP/1.1[0m" 304 -
+2024-12-14 13:36:56,497 - INFO - 127.0.0.1 - - [14/Dec/2024 13:36:56] "[36mGET /product/product/add?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-12-14 13:37:58,045 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\product_information.py', reloading
+2024-12-14 13:37:59,185 - INFO -  * Restarting with stat
+2024-12-14 13:38:01,091 - WARNING -  * Debugger is active!
+2024-12-14 13:38:01,096 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:38:06,800 - INFO - User admin@example.com added a new product with ID 3516.
+2024-12-14 13:38:06,801 - INFO - 127.0.0.1 - - [14/Dec/2024 13:38:06] "[32mPOST /product/product/add HTTP/1.1[0m" 302 -
+2024-12-14 13:38:06,873 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:38:06,896 - INFO - 127.0.0.1 - - [14/Dec/2024 13:38:06] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:38:16,963 - INFO - User admin@example.com deleted product 3516.
+2024-12-14 13:38:16,964 - INFO - 127.0.0.1 - - [14/Dec/2024 13:38:16] "[32mPOST /product/product/delete/3516 HTTP/1.1[0m" 302 -
+2024-12-14 13:38:17,014 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:38:17,018 - INFO - 127.0.0.1 - - [14/Dec/2024 13:38:17] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:38:29,029 - INFO - 127.0.0.1 - - [14/Dec/2024 13:38:29] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:39:06,934 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:39:06,944 - INFO - 127.0.0.1 - - [14/Dec/2024 13:39:06] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:39:10,890 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:39:10,895 - INFO - 127.0.0.1 - - [14/Dec/2024 13:39:10] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:39:17,138 - INFO - 127.0.0.1 - - [14/Dec/2024 13:39:17] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:39:55,365 - INFO - 127.0.0.1 - - [14/Dec/2024 13:39:55] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:39:56,709 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:39:56,710 - INFO - 127.0.0.1 - - [14/Dec/2024 13:39:56] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:39:58,446 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:39:58,450 - INFO - 127.0.0.1 - - [14/Dec/2024 13:39:58] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:40:13,939 - INFO - User admin@example.com added a new product with ID 3516.
+2024-12-14 13:40:13,941 - INFO - 127.0.0.1 - - [14/Dec/2024 13:40:13] "[32mPOST /product/product/add HTTP/1.1[0m" 302 -
+2024-12-14 13:40:14,008 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:40:14,013 - INFO - 127.0.0.1 - - [14/Dec/2024 13:40:14] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:40:41,888 - INFO - User admin@example.com deleted product 3516.
+2024-12-14 13:40:41,889 - INFO - 127.0.0.1 - - [14/Dec/2024 13:40:41] "[32mPOST /product/product/delete/3516 HTTP/1.1[0m" 302 -
+2024-12-14 13:40:42,017 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:40:42,021 - INFO - 127.0.0.1 - - [14/Dec/2024 13:40:42] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:41:17,330 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:41:17,331 - INFO - 127.0.0.1 - - [14/Dec/2024 13:41:17] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:41:18,139 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:41:18,143 - INFO - 127.0.0.1 - - [14/Dec/2024 13:41:18] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:41:19,076 - INFO - 127.0.0.1 - - [14/Dec/2024 13:41:19] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:42:01,281 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:42:01,282 - INFO - 127.0.0.1 - - [14/Dec/2024 13:42:01] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:42:02,263 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:42:02,267 - INFO - 127.0.0.1 - - [14/Dec/2024 13:42:02] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:42:02,997 - INFO - 127.0.0.1 - - [14/Dec/2024 13:42:02] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:43:06,966 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:43:06,967 - INFO - 127.0.0.1 - - [14/Dec/2024 13:43:06] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:43:07,829 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:43:07,833 - INFO - 127.0.0.1 - - [14/Dec/2024 13:43:07] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:43:08,536 - INFO - 127.0.0.1 - - [14/Dec/2024 13:43:08] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:43:44,464 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:43:44,465 - INFO - 127.0.0.1 - - [14/Dec/2024 13:43:44] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:43:45,395 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:43:45,400 - INFO - 127.0.0.1 - - [14/Dec/2024 13:43:45] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:43:46,087 - INFO - 127.0.0.1 - - [14/Dec/2024 13:43:46] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:44:01,512 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:44:01,513 - INFO - 127.0.0.1 - - [14/Dec/2024 13:44:01] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:44:02,120 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:44:02,125 - INFO - 127.0.0.1 - - [14/Dec/2024 13:44:02] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:44:02,669 - INFO - 127.0.0.1 - - [14/Dec/2024 13:44:02] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:44:36,351 - INFO - 127.0.0.1 - - [14/Dec/2024 13:44:36] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:44:43,066 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:44:43,067 - INFO - 127.0.0.1 - - [14/Dec/2024 13:44:43] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:44:48,408 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:44:48,412 - INFO - 127.0.0.1 - - [14/Dec/2024 13:44:48] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:44:49,313 - INFO - 127.0.0.1 - - [14/Dec/2024 13:44:49] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:44:51,238 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:44:51,239 - INFO - 127.0.0.1 - - [14/Dec/2024 13:44:51] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:44:52,101 - INFO - User admin@example.com accessed jobs index.
+2024-12-14 13:44:52,111 - INFO - 127.0.0.1 - - [14/Dec/2024 13:44:52] "GET / HTTP/1.1" 200 -
+2024-12-14 13:44:54,392 - INFO - 127.0.0.1 - - [14/Dec/2024 13:44:54] "GET /add HTTP/1.1" 200 -
+2024-12-14 13:44:55,622 - INFO - User admin@example.com accessed jobs index.
+2024-12-14 13:44:55,623 - INFO - 127.0.0.1 - - [14/Dec/2024 13:44:55] "GET / HTTP/1.1" 200 -
+2024-12-14 13:44:57,755 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:44:57,756 - INFO - 127.0.0.1 - - [14/Dec/2024 13:44:57] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:44:58,910 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:44:58,916 - INFO - 127.0.0.1 - - [14/Dec/2024 13:44:58] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:45:00,030 - INFO - 127.0.0.1 - - [14/Dec/2024 13:45:00] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:45:25,161 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:45:25,162 - INFO - 127.0.0.1 - - [14/Dec/2024 13:45:25] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:45:27,611 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:45:27,615 - INFO - 127.0.0.1 - - [14/Dec/2024 13:45:27] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:45:28,461 - INFO - 127.0.0.1 - - [14/Dec/2024 13:45:28] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:45:29,342 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:45:29,346 - INFO - 127.0.0.1 - - [14/Dec/2024 13:45:29] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:45:50,498 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:45:50,503 - INFO - 127.0.0.1 - - [14/Dec/2024 13:45:50] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:45:51,444 - INFO - 127.0.0.1 - - [14/Dec/2024 13:45:51] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:46:37,586 - INFO - 127.0.0.1 - - [14/Dec/2024 13:46:37] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:46:44,132 - INFO - 127.0.0.1 - - [14/Dec/2024 13:46:44] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:46:45,287 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:46:45,291 - INFO - 127.0.0.1 - - [14/Dec/2024 13:46:45] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:46:45,852 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:46:45,853 - INFO - 127.0.0.1 - - [14/Dec/2024 13:46:45] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:46:46,917 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:46:46,922 - INFO - 127.0.0.1 - - [14/Dec/2024 13:46:46] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:46:48,407 - INFO - 127.0.0.1 - - [14/Dec/2024 13:46:48] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:47:15,518 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:47:15,522 - INFO - 127.0.0.1 - - [14/Dec/2024 13:47:15] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:47:16,524 - INFO - 127.0.0.1 - - [14/Dec/2024 13:47:16] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:48:15,156 - INFO - 127.0.0.1 - - [14/Dec/2024 13:48:15] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:48:24,181 - INFO - 127.0.0.1 - - [14/Dec/2024 13:48:24] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:48:30,257 - INFO - 127.0.0.1 - - [14/Dec/2024 13:48:30] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:48:36,877 - INFO - 127.0.0.1 - - [14/Dec/2024 13:48:36] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:48:37,488 - INFO - 127.0.0.1 - - [14/Dec/2024 13:48:37] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:50:56,022 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-12-14 13:50:56,023 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 13:50:56,024 - INFO -  * Restarting with stat
+2024-12-14 13:50:57,811 - WARNING -  * Debugger is active!
+2024-12-14 13:50:57,816 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 13:50:58,178 - INFO - User admin@example.com accessed jobs index.
+2024-12-14 13:50:58,198 - INFO - 127.0.0.1 - - [14/Dec/2024 13:50:58] "GET / HTTP/1.1" 200 -
+2024-12-14 13:50:59,234 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:50:59,242 - INFO - 127.0.0.1 - - [14/Dec/2024 13:50:59] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:51:00,608 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:51:00,621 - INFO - 127.0.0.1 - - [14/Dec/2024 13:51:00] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:51:01,232 - INFO - 127.0.0.1 - - [14/Dec/2024 13:51:01] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:52:03,705 - INFO - 127.0.0.1 - - [14/Dec/2024 13:52:03] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:52:04,683 - INFO - 127.0.0.1 - - [14/Dec/2024 13:52:04] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:52:29,767 - INFO - 127.0.0.1 - - [14/Dec/2024 13:52:29] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:52:43,292 - INFO - 127.0.0.1 - - [14/Dec/2024 13:52:43] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:52:44,122 - INFO - 127.0.0.1 - - [14/Dec/2024 13:52:44] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:53:00,440 - INFO - 127.0.0.1 - - [14/Dec/2024 13:53:00] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:54:37,429 - INFO - 127.0.0.1 - - [14/Dec/2024 13:54:37] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:54:44,642 - INFO - 127.0.0.1 - - [14/Dec/2024 13:54:44] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:54:56,422 - INFO - 127.0.0.1 - - [14/Dec/2024 13:54:56] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:54:57,001 - INFO - 127.0.0.1 - - [14/Dec/2024 13:54:57] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:56:18,918 - INFO - User admin@example.com accessed jobs index.
+2024-12-14 13:56:18,920 - INFO - 127.0.0.1 - - [14/Dec/2024 13:56:18] "GET / HTTP/1.1" 200 -
+2024-12-14 13:56:20,240 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:56:20,241 - INFO - 127.0.0.1 - - [14/Dec/2024 13:56:20] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:56:21,492 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:56:21,497 - INFO - 127.0.0.1 - - [14/Dec/2024 13:56:21] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:56:22,242 - INFO - 127.0.0.1 - - [14/Dec/2024 13:56:22] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:56:36,392 - INFO - 127.0.0.1 - - [14/Dec/2024 13:56:36] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:56:45,144 - INFO - 127.0.0.1 - - [14/Dec/2024 13:56:45] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:56:49,835 - INFO - 127.0.0.1 - - [14/Dec/2024 13:56:49] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:56:55,799 - INFO - 127.0.0.1 - - [14/Dec/2024 13:56:55] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:57:08,738 - INFO - 127.0.0.1 - - [14/Dec/2024 13:57:08] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:57:09,386 - INFO - 127.0.0.1 - - [14/Dec/2024 13:57:09] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:57:30,328 - INFO - 127.0.0.1 - - [14/Dec/2024 13:57:30] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:57:30,939 - INFO - 127.0.0.1 - - [14/Dec/2024 13:57:30] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:57:35,055 - INFO - 127.0.0.1 - - [14/Dec/2024 13:57:35] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:57:38,706 - INFO - 127.0.0.1 - - [14/Dec/2024 13:57:38] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:57:39,324 - INFO - 127.0.0.1 - - [14/Dec/2024 13:57:39] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:57:41,043 - INFO - 127.0.0.1 - - [14/Dec/2024 13:57:41] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 13:57:42,517 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:57:42,521 - INFO - 127.0.0.1 - - [14/Dec/2024 13:57:42] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:57:43,812 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 13:57:43,813 - INFO - 127.0.0.1 - - [14/Dec/2024 13:57:43] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 13:57:47,980 - INFO - User admin@example.com accessed product information page.
+2024-12-14 13:57:47,983 - INFO - 127.0.0.1 - - [14/Dec/2024 13:57:47] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 13:58:24,880 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\product_information.py', reloading
+2024-12-14 13:58:26,324 - INFO -  * Restarting with stat
+2024-12-14 13:58:28,325 - WARNING -  * Debugger is active!
+2024-12-14 13:58:28,331 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 14:01:11,105 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:01:11,124 - INFO - 127.0.0.1 - - [14/Dec/2024 14:01:11] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:01:12,367 - INFO - User admin@example.com accessed product information page.
+2024-12-14 14:01:12,385 - INFO - 127.0.0.1 - - [14/Dec/2024 14:01:12] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 14:01:14,018 - INFO - 127.0.0.1 - - [14/Dec/2024 14:01:14] "[35m[1mPOST /product/product/edit/3091 HTTP/1.1[0m" 500 -
+2024-12-14 14:01:14,093 - INFO - 127.0.0.1 - - [14/Dec/2024 14:01:14] "GET /product/product/edit/3091?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2024-12-14 14:01:14,102 - INFO - 127.0.0.1 - - [14/Dec/2024 14:01:14] "GET /product/product/edit/3091?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2024-12-14 14:01:14,149 - INFO - 127.0.0.1 - - [14/Dec/2024 14:01:14] "GET /product/product/edit/3091?__debugger__=yes&cmd=resource&f=console.png&s=xKbFULN1Ces6fQYIFt39 HTTP/1.1" 200 -
+2024-12-14 14:01:14,162 - INFO - 127.0.0.1 - - [14/Dec/2024 14:01:14] "GET /product/product/edit/3091?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2024-12-14 14:02:42,585 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-12-14 14:02:42,585 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 14:02:42,587 - INFO -  * Restarting with stat
+2024-12-14 14:02:44,444 - WARNING -  * Debugger is active!
+2024-12-14 14:02:44,449 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 14:02:44,696 - INFO - User admin@example.com accessed product information page.
+2024-12-14 14:02:44,723 - INFO - 127.0.0.1 - - [14/Dec/2024 14:02:44] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 14:02:46,236 - WARNING - Missing data in form submission for product 3091.
+2024-12-14 14:02:46,236 - INFO - 127.0.0.1 - - [14/Dec/2024 14:02:46] "[32mPOST /product/product/edit/3091 HTTP/1.1[0m" 302 -
+2024-12-14 14:02:46,342 - INFO - 127.0.0.1 - - [14/Dec/2024 14:02:46] "GET /product/product/edit/3091 HTTP/1.1" 200 -
+2024-12-14 14:05:10,758 - WARNING - Unauthorized access attempt to jobs index.
+2024-12-14 14:05:10,759 - INFO - 127.0.0.1 - - [14/Dec/2024 14:05:10] "[32mGET / HTTP/1.1[0m" 302 -
+2024-12-14 14:05:10,777 - INFO - 127.0.0.1 - - [14/Dec/2024 14:05:10] "GET /login HTTP/1.1" 200 -
+2024-12-14 14:05:11,567 - INFO - 127.0.0.1 - - [14/Dec/2024 14:05:11] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-12-14 14:05:15,242 - DEBUG - Login attempt with email: admin@example.com
+2024-12-14 14:05:15,243 - INFO - User admin@example.com logged in successfully with role Admin.
+2024-12-14 14:05:15,244 - INFO - 127.0.0.1 - - [14/Dec/2024 14:05:15] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-14 14:05:15,255 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:05:15,263 - INFO - 127.0.0.1 - - [14/Dec/2024 14:05:15] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:05:16,301 - INFO - User admin@example.com accessed product information page.
+2024-12-14 14:05:16,307 - INFO - 127.0.0.1 - - [14/Dec/2024 14:05:16] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 14:05:17,501 - WARNING - Missing data in form submission for product 3091.
+2024-12-14 14:05:17,502 - INFO - 127.0.0.1 - - [14/Dec/2024 14:05:17] "[32mPOST /product/product/edit/3091 HTTP/1.1[0m" 302 -
+2024-12-14 14:05:17,567 - INFO - 127.0.0.1 - - [14/Dec/2024 14:05:17] "GET /product/product/edit/3091 HTTP/1.1" 200 -
+2024-12-14 14:05:21,041 - INFO - User admin@example.com accessed product information page.
+2024-12-14 14:05:21,046 - INFO - 127.0.0.1 - - [14/Dec/2024 14:05:21] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 14:05:24,741 - WARNING - Missing data in form submission for product 3091.
+2024-12-14 14:05:24,741 - INFO - 127.0.0.1 - - [14/Dec/2024 14:05:24] "[32mPOST /product/product/edit/3091 HTTP/1.1[0m" 302 -
+2024-12-14 14:05:24,871 - INFO - 127.0.0.1 - - [14/Dec/2024 14:05:24] "GET /product/product/edit/3091 HTTP/1.1" 200 -
+2024-12-14 14:05:28,862 - INFO - User admin@example.com accessed product information page.
+2024-12-14 14:05:28,868 - INFO - 127.0.0.1 - - [14/Dec/2024 14:05:28] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 14:05:33,053 - INFO - 127.0.0.1 - - [14/Dec/2024 14:05:33] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 14:06:17,048 - INFO - User admin@example.com added a new product with ID 3516.
+2024-12-14 14:06:17,049 - INFO - 127.0.0.1 - - [14/Dec/2024 14:06:17] "[32mPOST /product/product/add HTTP/1.1[0m" 302 -
+2024-12-14 14:06:17,165 - INFO - User admin@example.com accessed product information page.
+2024-12-14 14:06:17,170 - INFO - 127.0.0.1 - - [14/Dec/2024 14:06:17] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 14:06:46,896 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:06:46,897 - INFO - 127.0.0.1 - - [14/Dec/2024 14:06:46] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:06:58,086 - INFO - 127.0.0.1 - - [14/Dec/2024 14:06:58] "GET /users/personal_info HTTP/1.1" 200 -
+2024-12-14 14:07:00,770 - INFO - 127.0.0.1 - - [14/Dec/2024 14:07:00] "GET /users/all_users HTTP/1.1" 200 -
+2024-12-14 14:07:02,902 - INFO - 127.0.0.1 - - [14/Dec/2024 14:07:02] "GET /users/personal_info HTTP/1.1" 200 -
+2024-12-14 14:07:03,299 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:07:03,300 - INFO - 127.0.0.1 - - [14/Dec/2024 14:07:03] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:07:05,098 - INFO - User admin@example.com accessed employee index.
+2024-12-14 14:07:05,124 - INFO - 127.0.0.1 - - [14/Dec/2024 14:07:05] "GET /employee/ HTTP/1.1" 200 -
+2024-12-14 14:07:06,701 - INFO - 127.0.0.1 - - [14/Dec/2024 14:07:06] "GET /employee/filter?combined_filter=department&sub_filter=10 HTTP/1.1" 200 -
+2024-12-14 14:07:07,529 - INFO - User admin@example.com accessed employee index.
+2024-12-14 14:07:07,533 - INFO - 127.0.0.1 - - [14/Dec/2024 14:07:07] "GET /employee/ HTTP/1.1" 200 -
+2024-12-14 14:07:08,000 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:07:08,001 - INFO - 127.0.0.1 - - [14/Dec/2024 14:07:08] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:07:08,603 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 14:07:08,630 - INFO - 127.0.0.1 - - [14/Dec/2024 14:07:08] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 14:07:13,694 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 14:07:13,696 - INFO - 127.0.0.1 - - [14/Dec/2024 14:07:13] "GET /inventory/inventory?combined_filter=product_name&sub_filter=2316 HTTP/1.1" 200 -
+2024-12-14 14:07:30,975 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 14:07:30,984 - INFO - 127.0.0.1 - - [14/Dec/2024 14:07:30] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 14:07:42,103 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 14:07:42,105 - INFO - 127.0.0.1 - - [14/Dec/2024 14:07:42] "GET /inventory/inventory?combined_filter=warehouse_name&sub_filter=7 HTTP/1.1" 200 -
+2024-12-14 14:08:36,270 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 14:08:36,278 - INFO - 127.0.0.1 - - [14/Dec/2024 14:08:36] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 14:08:37,620 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:08:37,621 - INFO - 127.0.0.1 - - [14/Dec/2024 14:08:37] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:08:39,046 - INFO - User admin@example.com accessed jobs index.
+2024-12-14 14:08:39,056 - INFO - 127.0.0.1 - - [14/Dec/2024 14:08:39] "GET / HTTP/1.1" 200 -
+2024-12-14 14:08:40,026 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:08:40,028 - INFO - 127.0.0.1 - - [14/Dec/2024 14:08:40] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:08:40,569 - INFO - User admin@example.com accessed department index.
+2024-12-14 14:08:40,587 - INFO - 127.0.0.1 - - [14/Dec/2024 14:08:40] "GET /department/ HTTP/1.1" 200 -
+2024-12-14 14:08:41,233 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:08:41,234 - INFO - 127.0.0.1 - - [14/Dec/2024 14:08:41] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:08:41,817 - INFO - User admin@example.com accessed employee index.
+2024-12-14 14:08:41,822 - INFO - 127.0.0.1 - - [14/Dec/2024 14:08:41] "GET /employee/ HTTP/1.1" 200 -
+2024-12-14 14:08:44,237 - INFO - 127.0.0.1 - - [14/Dec/2024 14:08:44] "GET /employee/filter?combined_filter=department&sub_filter=10 HTTP/1.1" 200 -
+2024-12-14 14:08:45,166 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:08:45,167 - INFO - 127.0.0.1 - - [14/Dec/2024 14:08:45] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:08:45,946 - INFO - 127.0.0.1 - - [14/Dec/2024 14:08:45] "GET /sales/ HTTP/1.1" 200 -
+2024-12-14 14:08:49,623 - INFO - User admin@example.com accessed sales index.
+2024-12-14 14:08:49,624 - INFO - 127.0.0.1 - - [14/Dec/2024 14:08:49] "POST /sales/ HTTP/1.1" 200 -
+2024-12-14 14:08:52,673 - INFO - User admin@example.com accessed sales index.
+2024-12-14 14:08:52,676 - INFO - 127.0.0.1 - - [14/Dec/2024 14:08:52] "POST /sales/ HTTP/1.1" 200 -
+2024-12-14 14:08:56,644 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:08:56,645 - INFO - 127.0.0.1 - - [14/Dec/2024 14:08:56] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:08:57,167 - INFO - 127.0.0.1 - - [14/Dec/2024 14:08:57] "GET /sales/ HTTP/1.1" 200 -
+2024-12-14 14:08:57,912 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:08:57,914 - INFO - 127.0.0.1 - - [14/Dec/2024 14:08:57] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:08:58,374 - INFO - User admin@example.com accessed product information page.
+2024-12-14 14:08:58,380 - INFO - 127.0.0.1 - - [14/Dec/2024 14:08:58] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 14:09:07,910 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:07] "GET /product/product/add HTTP/1.1" 200 -
+2024-12-14 14:09:15,062 - INFO - User admin@example.com added a new product with ID 3517.
+2024-12-14 14:09:15,064 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:15] "[32mPOST /product/product/add HTTP/1.1[0m" 302 -
+2024-12-14 14:09:15,147 - INFO - User admin@example.com accessed product information page.
+2024-12-14 14:09:15,153 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:15] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 14:09:28,565 - INFO - User admin@example.com deleted product 3516.
+2024-12-14 14:09:28,566 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:28] "[32mPOST /product/product/delete/3516 HTTP/1.1[0m" 302 -
+2024-12-14 14:09:28,618 - INFO - User admin@example.com accessed product information page.
+2024-12-14 14:09:28,623 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:28] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 14:09:35,423 - INFO - User admin@example.com deleted product 3517.
+2024-12-14 14:09:35,425 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:35] "[32mPOST /product/product/delete/3517 HTTP/1.1[0m" 302 -
+2024-12-14 14:09:35,518 - INFO - User admin@example.com accessed product information page.
+2024-12-14 14:09:35,523 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:35] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 14:09:40,604 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:09:40,605 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:40] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:09:41,816 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:41] "GET /sales/ HTTP/1.1" 200 -
+2024-12-14 14:09:42,711 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:09:42,712 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:42] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:09:43,762 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 14:09:43,771 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:43] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 14:09:46,221 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 14:09:46,223 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:46] "GET /inventory/inventory?combined_filter=product_name&sub_filter=2268 HTTP/1.1" 200 -
+2024-12-14 14:09:51,090 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 14:09:51,092 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:51] "GET /inventory/inventory?combined_filter=warehouse_name&sub_filter=2 HTTP/1.1" 200 -
+2024-12-14 14:09:51,564 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 14:09:51,572 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:51] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 14:09:52,398 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:52] "GET /inventory/inventory/add HTTP/1.1" 200 -
+2024-12-14 14:09:55,503 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:09:55,504 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:55] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:09:56,306 - INFO - 127.0.0.1 - - [14/Dec/2024 14:09:56] "GET /sales/ HTTP/1.1" 200 -
+2024-12-14 14:10:04,327 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:10:04,328 - INFO - 127.0.0.1 - - [14/Dec/2024 14:10:04] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:10:06,102 - INFO - User admin@example.com accessed product information page.
+2024-12-14 14:10:06,114 - INFO - 127.0.0.1 - - [14/Dec/2024 14:10:06] "GET /product/product HTTP/1.1" 200 -
+2024-12-14 14:10:08,328 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:10:08,330 - INFO - 127.0.0.1 - - [14/Dec/2024 14:10:08] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:10:08,797 - INFO - 127.0.0.1 - - [14/Dec/2024 14:10:08] "GET /sales/ HTTP/1.1" 200 -
+2024-12-14 14:10:13,302 - INFO - User admin@example.com accessed sales index.
+2024-12-14 14:10:13,304 - INFO - 127.0.0.1 - - [14/Dec/2024 14:10:13] "POST /sales/ HTTP/1.1" 200 -
+2024-12-14 14:10:18,781 - INFO - 127.0.0.1 - - [14/Dec/2024 14:10:18] "GET /sales/add HTTP/1.1" 200 -
+2024-12-14 14:10:21,360 - INFO - User admin@example.com accessed sales index.
+2024-12-14 14:10:21,363 - INFO - 127.0.0.1 - - [14/Dec/2024 14:10:21] "POST /sales/ HTTP/1.1" 200 -
+2024-12-14 14:10:25,064 - INFO - User admin@example.com accessed sales index.
+2024-12-14 14:10:25,065 - INFO - 127.0.0.1 - - [14/Dec/2024 14:10:25] "POST /sales/ HTTP/1.1" 200 -
+2024-12-14 14:11:13,285 - INFO - User admin@example.com accessed sales index.
+2024-12-14 14:11:13,287 - INFO - 127.0.0.1 - - [14/Dec/2024 14:11:13] "POST /sales/ HTTP/1.1" 200 -
+2024-12-14 14:11:16,499 - INFO - 127.0.0.1 - - [14/Dec/2024 14:11:16] "GET /sales/ HTTP/1.1" 200 -
+2024-12-14 14:11:27,107 - INFO - User admin@example.com accessed sales index.
+2024-12-14 14:11:27,110 - INFO - 127.0.0.1 - - [14/Dec/2024 14:11:27] "POST /sales/ HTTP/1.1" 200 -
+2024-12-14 14:11:27,732 - INFO - 127.0.0.1 - - [14/Dec/2024 14:11:27] "GET /sales/ HTTP/1.1" 200 -
+2024-12-14 14:12:04,900 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:12:04,901 - INFO - 127.0.0.1 - - [14/Dec/2024 14:12:04] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:12:06,166 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 14:12:06,177 - INFO - 127.0.0.1 - - [14/Dec/2024 14:12:06] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 14:14:24,451 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-12-14 14:14:24,451 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 14:14:24,454 - INFO -  * Restarting with stat
+2024-12-14 14:14:26,453 - WARNING -  * Debugger is active!
+2024-12-14 14:14:26,458 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 14:14:26,989 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:14:27,011 - INFO - 127.0.0.1 - - [14/Dec/2024 14:14:27] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:14:28,824 - INFO - User logged out.
+2024-12-14 14:14:28,825 - INFO - 127.0.0.1 - - [14/Dec/2024 14:14:28] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-14 14:14:28,838 - INFO - 127.0.0.1 - - [14/Dec/2024 14:14:28] "GET /login HTTP/1.1" 200 -
+2024-12-14 14:15:02,622 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\inventory.py', reloading
+2024-12-14 14:15:04,505 - INFO -  * Restarting with stat
+2024-12-14 14:15:06,334 - WARNING -  * Debugger is active!
+2024-12-14 14:15:06,340 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 14:16:00,475 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\inventory.py', reloading
+2024-12-14 14:16:02,768 - INFO -  * Restarting with stat
+2024-12-14 14:16:04,862 - WARNING -  * Debugger is active!
+2024-12-14 14:16:04,867 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 14:16:07,745 - DEBUG - Login attempt with email: admin@example.com
+2024-12-14 14:16:07,746 - INFO - User admin@example.com logged in successfully with role Admin.
+2024-12-14 14:16:07,747 - INFO - 127.0.0.1 - - [14/Dec/2024 14:16:07] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-14 14:16:07,756 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:16:07,774 - INFO - 127.0.0.1 - - [14/Dec/2024 14:16:07] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:16:09,116 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 14:16:09,141 - INFO - 127.0.0.1 - - [14/Dec/2024 14:16:09] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 14:16:11,581 - ERROR - Error fetching data: ORA-01036: illegal variable name/number
+2024-12-14 14:16:11,583 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 14:16:11,584 - INFO - 127.0.0.1 - - [14/Dec/2024 14:16:11] "GET /inventory/inventory?combined_filter=product_name&sub_filter=2268 HTTP/1.1" 200 -
+2024-12-14 14:18:29,161 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\inventory.py', reloading
+2024-12-14 14:18:30,993 - INFO -  * Restarting with stat
+2024-12-14 14:18:32,920 - WARNING -  * Debugger is active!
+2024-12-14 14:18:32,926 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 14:18:35,330 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:18:35,349 - INFO - 127.0.0.1 - - [14/Dec/2024 14:18:35] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:18:37,105 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 14:18:37,141 - INFO - 127.0.0.1 - - [14/Dec/2024 14:18:37] "[35m[1mGET /inventory/inventory HTTP/1.1[0m" 500 -
+2024-12-14 14:18:37,230 - INFO - 127.0.0.1 - - [14/Dec/2024 14:18:37] "[36mGET /inventory/inventory?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-14 14:18:37,240 - INFO - 127.0.0.1 - - [14/Dec/2024 14:18:37] "[36mGET /inventory/inventory?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-14 14:18:37,275 - INFO - 127.0.0.1 - - [14/Dec/2024 14:18:37] "GET /inventory/inventory?__debugger__=yes&cmd=resource&f=console.png&s=ctUBr7KKupnxoYa1eQ0G HTTP/1.1" 200 -
+2024-12-14 14:18:37,292 - INFO - 127.0.0.1 - - [14/Dec/2024 14:18:37] "[36mGET /inventory/inventory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-12-14 14:19:20,802 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\inventory.py', reloading
+2024-12-14 14:19:23,306 - INFO -  * Restarting with stat
+2024-12-14 14:19:25,113 - WARNING -  * Debugger is active!
+2024-12-14 14:19:25,118 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 14:19:28,667 - INFO - 127.0.0.1 - - [14/Dec/2024 14:19:28] "GET /sales/ HTTP/1.1" 200 -
+2024-12-14 14:19:29,481 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 14:19:29,489 - INFO - 127.0.0.1 - - [14/Dec/2024 14:19:29] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 14:19:30,190 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 14:19:30,226 - INFO - 127.0.0.1 - - [14/Dec/2024 14:19:30] "[35m[1mGET /inventory/inventory HTTP/1.1[0m" 500 -
+2024-12-14 14:19:30,298 - INFO - 127.0.0.1 - - [14/Dec/2024 14:19:30] "[36mGET /inventory/inventory?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-14 14:19:30,315 - INFO - 127.0.0.1 - - [14/Dec/2024 14:19:30] "[36mGET /inventory/inventory?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-14 14:19:30,333 - INFO - 127.0.0.1 - - [14/Dec/2024 14:19:30] "GET /inventory/inventory?__debugger__=yes&cmd=resource&f=console.png&s=1bips2xJs04Ua3U77toN HTTP/1.1" 200 -
+2024-12-14 14:20:33,175 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\inventory.py', reloading
+2024-12-14 14:20:49,294 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-12-14 14:20:49,295 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 14:20:49,296 - INFO -  * Restarting with stat
+2024-12-14 14:20:51,107 - WARNING -  * Debugger is active!
+2024-12-14 14:20:51,112 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 14:20:51,475 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 14:20:51,510 - INFO - 127.0.0.1 - - [14/Dec/2024 14:20:51] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 14:20:54,172 - INFO - User admin@example.com accessed inventory page with filters.
+2024-12-14 14:20:54,174 - INFO - 127.0.0.1 - - [14/Dec/2024 14:20:54] "GET /inventory/inventory?combined_filter=warehouse_name&sub_filter=2 HTTP/1.1" 200 -
+2024-12-14 16:53:38,981 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-12-14 16:53:38,982 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 16:53:38,985 - INFO -  * Restarting with stat
+2024-12-14 16:53:40,836 - WARNING -  * Debugger is active!
+2024-12-14 16:53:40,841 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 16:53:59,686 - WARNING - Unauthorized access attempt to jobs index.
+2024-12-14 16:53:59,687 - INFO - 127.0.0.1 - - [14/Dec/2024 16:53:59] "[32mGET / HTTP/1.1[0m" 302 -
+2024-12-14 16:53:59,727 - INFO - 127.0.0.1 - - [14/Dec/2024 16:53:59] "GET /login HTTP/1.1" 200 -
+2024-12-14 16:54:00,429 - INFO - 127.0.0.1 - - [14/Dec/2024 16:54:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-12-14 16:54:06,282 - DEBUG - Login attempt with email: admin@example.com
+2024-12-14 16:54:06,282 - INFO - User admin@example.com logged in successfully with role Admin.
+2024-12-14 16:54:06,285 - INFO - 127.0.0.1 - - [14/Dec/2024 16:54:06] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-14 16:54:06,307 - INFO - User admin@example.com accessed the admin dashboard.
+2024-12-14 16:54:06,316 - INFO - 127.0.0.1 - - [14/Dec/2024 16:54:06] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 17:02:48,013 - INFO - 127.0.0.1 - - [14/Dec/2024 17:02:48] "GET /users/personal_info HTTP/1.1" 200 -
+2024-12-14 17:02:48,904 - INFO - 127.0.0.1 - - [14/Dec/2024 17:02:48] "GET /users/all_users HTTP/1.1" 200 -
+2024-12-14 17:02:50,341 - INFO - 127.0.0.1 - - [14/Dec/2024 17:02:50] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:02:52,010 - INFO - 127.0.0.1 - - [14/Dec/2024 17:02:52] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:02:52,068 - INFO - 127.0.0.1 - - [14/Dec/2024 17:02:52] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:02:52,979 - INFO - 127.0.0.1 - - [14/Dec/2024 17:02:52] "GET /users/all_users HTTP/1.1" 200 -
+2024-12-14 17:02:55,487 - INFO - 127.0.0.1 - - [14/Dec/2024 17:02:55] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:02:58,433 - INFO - 127.0.0.1 - - [14/Dec/2024 17:02:58] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:02:58,492 - INFO - 127.0.0.1 - - [14/Dec/2024 17:02:58] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:02:59,532 - INFO - 127.0.0.1 - - [14/Dec/2024 17:02:59] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:02:59,577 - INFO - 127.0.0.1 - - [14/Dec/2024 17:02:59] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:03:00,246 - INFO - 127.0.0.1 - - [14/Dec/2024 17:03:00] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:03:00,296 - INFO - 127.0.0.1 - - [14/Dec/2024 17:03:00] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:03:00,574 - INFO - 127.0.0.1 - - [14/Dec/2024 17:03:00] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:03:00,626 - INFO - 127.0.0.1 - - [14/Dec/2024 17:03:00] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:03:01,557 - INFO - 127.0.0.1 - - [14/Dec/2024 17:03:01] "GET /users/all_users HTTP/1.1" 200 -
+2024-12-14 17:03:26,561 - INFO - 127.0.0.1 - - [14/Dec/2024 17:03:26] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:03:28,576 - INFO - 127.0.0.1 - - [14/Dec/2024 17:03:28] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:03:28,689 - INFO - 127.0.0.1 - - [14/Dec/2024 17:03:28] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:03:29,535 - INFO - 127.0.0.1 - - [14/Dec/2024 17:03:29] "GET /users/all_users HTTP/1.1" 200 -
+2024-12-14 17:03:31,241 - INFO - 127.0.0.1 - - [14/Dec/2024 17:03:31] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:04:21,936 - INFO - 127.0.0.1 - - [14/Dec/2024 17:04:21] "GET /users/all_users HTTP/1.1" 200 -
+2024-12-14 17:04:23,858 - INFO - 127.0.0.1 - - [14/Dec/2024 17:04:23] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:04:25,495 - INFO - 127.0.0.1 - - [14/Dec/2024 17:04:25] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:04:25,543 - INFO - 127.0.0.1 - - [14/Dec/2024 17:04:25] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:04:26,923 - INFO - 127.0.0.1 - - [14/Dec/2024 17:04:26] "GET /users/all_users HTTP/1.1" 200 -
+2024-12-14 17:04:28,639 - INFO - User logged out.
+2024-12-14 17:04:28,640 - INFO - 127.0.0.1 - - [14/Dec/2024 17:04:28] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-14 17:04:28,659 - INFO - 127.0.0.1 - - [14/Dec/2024 17:04:28] "GET /login HTTP/1.1" 200 -
+2024-12-14 17:04:31,576 - DEBUG - Login attempt with email: worker@example.com
+2024-12-14 17:04:31,577 - INFO - User worker@example.com logged in successfully with role Admin.
+2024-12-14 17:04:31,578 - INFO - 127.0.0.1 - - [14/Dec/2024 17:04:31] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-14 17:04:31,593 - INFO - User worker@example.com accessed the admin dashboard.
+2024-12-14 17:04:31,595 - INFO - 127.0.0.1 - - [14/Dec/2024 17:04:31] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 17:05:56,613 - INFO - 127.0.0.1 - - [14/Dec/2024 17:05:56] "GET /users/personal_info HTTP/1.1" 200 -
+2024-12-14 17:05:58,854 - INFO - 127.0.0.1 - - [14/Dec/2024 17:05:58] "GET /users/all_users HTTP/1.1" 200 -
+2024-12-14 17:06:00,947 - INFO - 127.0.0.1 - - [14/Dec/2024 17:06:00] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:07:34,780 - INFO - 127.0.0.1 - - [14/Dec/2024 17:07:34] "GET /users/all_users HTTP/1.1" 200 -
+2024-12-14 17:07:36,233 - INFO - 127.0.0.1 - - [14/Dec/2024 17:07:36] "[35m[1mGET /users/edit_user/2 HTTP/1.1[0m" 500 -
+2024-12-14 17:07:36,328 - INFO - 127.0.0.1 - - [14/Dec/2024 17:07:36] "[36mGET /users/edit_user/2?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-14 17:07:36,329 - INFO - 127.0.0.1 - - [14/Dec/2024 17:07:36] "[36mGET /users/edit_user/2?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-14 17:07:36,363 - INFO - 127.0.0.1 - - [14/Dec/2024 17:07:36] "GET /users/edit_user/2?__debugger__=yes&cmd=resource&f=console.png&s=KXDsHH9pG8gOzsFjk6St HTTP/1.1" 200 -
+2024-12-14 17:07:36,378 - INFO - 127.0.0.1 - - [14/Dec/2024 17:07:36] "[36mGET /users/edit_user/2?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-12-14 17:07:44,233 - INFO - 127.0.0.1 - - [14/Dec/2024 17:07:44] "[35m[1mGET /users/edit_user/2 HTTP/1.1[0m" 500 -
+2024-12-14 17:07:44,263 - INFO - 127.0.0.1 - - [14/Dec/2024 17:07:44] "[36mGET /users/edit_user/2?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-14 17:07:44,264 - INFO - 127.0.0.1 - - [14/Dec/2024 17:07:44] "[36mGET /users/edit_user/2?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-14 17:07:44,282 - INFO - 127.0.0.1 - - [14/Dec/2024 17:07:44] "[36mGET /users/edit_user/2?__debugger__=yes&cmd=resource&f=console.png&s=KXDsHH9pG8gOzsFjk6St HTTP/1.1[0m" 304 -
+2024-12-14 17:07:44,297 - INFO - 127.0.0.1 - - [14/Dec/2024 17:07:44] "[36mGET /users/edit_user/2?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-12-14 17:07:56,905 - INFO - User worker@example.com accessed the admin dashboard.
+2024-12-14 17:07:56,906 - INFO - 127.0.0.1 - - [14/Dec/2024 17:07:56] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 17:09:16,050 - INFO - User worker@example.com accessed jobs index.
+2024-12-14 17:09:16,068 - INFO - 127.0.0.1 - - [14/Dec/2024 17:09:16] "GET / HTTP/1.1" 200 -
+2024-12-14 17:09:17,261 - INFO - 127.0.0.1 - - [14/Dec/2024 17:09:17] "GET /edit/AD_PRES HTTP/1.1" 200 -
+2024-12-14 17:09:23,806 - INFO - User worker@example.com accessed jobs index.
+2024-12-14 17:09:23,808 - INFO - 127.0.0.1 - - [14/Dec/2024 17:09:23] "GET / HTTP/1.1" 200 -
+2024-12-14 17:09:24,614 - INFO - 127.0.0.1 - - [14/Dec/2024 17:09:24] "GET /edit/AD_PRES HTTP/1.1" 200 -
+2024-12-14 17:09:27,578 - INFO - User worker@example.com accessed jobs index.
+2024-12-14 17:09:27,579 - INFO - 127.0.0.1 - - [14/Dec/2024 17:09:27] "GET / HTTP/1.1" 200 -
+2024-12-14 17:09:37,069 - INFO - 127.0.0.1 - - [14/Dec/2024 17:09:37] "GET /edit/AD_PRES HTTP/1.1" 200 -
+2024-12-14 17:13:43,637 - INFO - User worker@example.com accessed jobs index.
+2024-12-14 17:13:43,639 - INFO - 127.0.0.1 - - [14/Dec/2024 17:13:43] "GET / HTTP/1.1" 200 -
+2024-12-14 17:13:44,499 - INFO - User worker@example.com accessed the admin dashboard.
+2024-12-14 17:13:44,500 - INFO - 127.0.0.1 - - [14/Dec/2024 17:13:44] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 17:13:45,534 - INFO - 127.0.0.1 - - [14/Dec/2024 17:13:45] "GET /users/personal_info HTTP/1.1" 200 -
+2024-12-14 17:13:45,986 - INFO - 127.0.0.1 - - [14/Dec/2024 17:13:45] "GET /users/all_users HTTP/1.1" 200 -
+2024-12-14 17:13:47,028 - INFO - 127.0.0.1 - - [14/Dec/2024 17:13:47] "[35m[1mGET /users/edit_user/2 HTTP/1.1[0m" 500 -
+2024-12-14 17:13:47,063 - INFO - 127.0.0.1 - - [14/Dec/2024 17:13:47] "[36mGET /users/edit_user/2?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-14 17:13:47,073 - INFO - 127.0.0.1 - - [14/Dec/2024 17:13:47] "[36mGET /users/edit_user/2?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-14 17:13:47,095 - INFO - 127.0.0.1 - - [14/Dec/2024 17:13:47] "[36mGET /users/edit_user/2?__debugger__=yes&cmd=resource&f=console.png&s=KXDsHH9pG8gOzsFjk6St HTTP/1.1[0m" 304 -
+2024-12-14 17:14:49,029 - INFO - 127.0.0.1 - - [14/Dec/2024 17:14:49] "[35m[1mGET /users/edit_user/2 HTTP/1.1[0m" 500 -
+2024-12-14 17:14:49,059 - INFO - 127.0.0.1 - - [14/Dec/2024 17:14:49] "[36mGET /users/edit_user/2?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-14 17:14:49,064 - INFO - 127.0.0.1 - - [14/Dec/2024 17:14:49] "[36mGET /users/edit_user/2?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-14 17:14:49,084 - INFO - 127.0.0.1 - - [14/Dec/2024 17:14:49] "[36mGET /users/edit_user/2?__debugger__=yes&cmd=resource&f=console.png&s=KXDsHH9pG8gOzsFjk6St HTTP/1.1[0m" 304 -
+2024-12-14 17:14:49,103 - INFO - 127.0.0.1 - - [14/Dec/2024 17:14:49] "[36mGET /users/edit_user/2?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-12-14 17:14:55,182 - INFO - 127.0.0.1 - - [14/Dec/2024 17:14:55] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:14:57,503 - INFO - 127.0.0.1 - - [14/Dec/2024 17:14:57] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:14:57,552 - INFO - 127.0.0.1 - - [14/Dec/2024 17:14:57] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:15:01,685 - INFO - 127.0.0.1 - - [14/Dec/2024 17:15:01] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:15:01,732 - INFO - 127.0.0.1 - - [14/Dec/2024 17:15:01] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:15:02,280 - INFO - 127.0.0.1 - - [14/Dec/2024 17:15:02] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:15:02,328 - INFO - 127.0.0.1 - - [14/Dec/2024 17:15:02] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:15:04,146 - INFO - 127.0.0.1 - - [14/Dec/2024 17:15:04] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:15:04,203 - INFO - 127.0.0.1 - - [14/Dec/2024 17:15:04] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:15:04,622 - INFO - 127.0.0.1 - - [14/Dec/2024 17:15:04] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:15:04,670 - INFO - 127.0.0.1 - - [14/Dec/2024 17:15:04] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:15:04,969 - INFO - 127.0.0.1 - - [14/Dec/2024 17:15:04] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:15:05,053 - INFO - 127.0.0.1 - - [14/Dec/2024 17:15:05] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:15:05,095 - INFO - 127.0.0.1 - - [14/Dec/2024 17:15:05] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:15:05,142 - INFO - 127.0.0.1 - - [14/Dec/2024 17:15:05] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:15:06,582 - INFO - 127.0.0.1 - - [14/Dec/2024 17:15:06] "GET /users/all_users HTTP/1.1" 200 -
+2024-12-14 17:15:54,662 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\users.py', reloading
+2024-12-14 17:15:56,710 - INFO -  * Restarting with stat
+2024-12-14 17:15:58,754 - WARNING -  * Debugger is active!
+2024-12-14 17:15:58,759 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 17:15:59,942 - INFO - 127.0.0.1 - - [14/Dec/2024 17:15:59] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:16:01,568 - INFO - 127.0.0.1 - - [14/Dec/2024 17:16:01] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:16:01,616 - INFO - 127.0.0.1 - - [14/Dec/2024 17:16:01] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:16:03,099 - INFO - 127.0.0.1 - - [14/Dec/2024 17:16:03] "GET /users/all_users HTTP/1.1" 200 -
+2024-12-14 17:17:00,314 - INFO -  * Detected change in 'C:\\Users\\batur\\Downloads\\Ýlk_Sürüm\\routes\\users.py', reloading
+2024-12-14 17:17:02,059 - INFO -  * Restarting with stat
+2024-12-14 17:17:03,945 - WARNING -  * Debugger is active!
+2024-12-14 17:17:03,950 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 17:17:05,314 - INFO - 127.0.0.1 - - [14/Dec/2024 17:17:05] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:17:07,566 - INFO - 127.0.0.1 - - [14/Dec/2024 17:17:07] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:17:07,657 - INFO - 127.0.0.1 - - [14/Dec/2024 17:17:07] "GET /users/all_users?user_id=2 HTTP/1.1" 200 -
+2024-12-14 17:17:09,223 - INFO - 127.0.0.1 - - [14/Dec/2024 17:17:09] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:17:11,100 - INFO - 127.0.0.1 - - [14/Dec/2024 17:17:11] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:17:11,172 - INFO - 127.0.0.1 - - [14/Dec/2024 17:17:11] "GET /users/all_users?user_id=2 HTTP/1.1" 200 -
+2024-12-14 17:17:12,360 - INFO - 127.0.0.1 - - [14/Dec/2024 17:17:12] "GET /users/edit_user/2 HTTP/1.1" 200 -
+2024-12-14 17:17:14,362 - INFO - 127.0.0.1 - - [14/Dec/2024 17:17:14] "[32mPOST /users/edit_user/2 HTTP/1.1[0m" 302 -
+2024-12-14 17:17:14,409 - INFO - 127.0.0.1 - - [14/Dec/2024 17:17:14] "GET /users/all_users?user_id=2 HTTP/1.1" 200 -
+2024-12-14 17:19:44,331 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-12-14 17:19:44,331 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 17:19:44,333 - INFO -  * Restarting with stat
+2024-12-14 17:19:46,071 - WARNING -  * Debugger is active!
+2024-12-14 17:19:46,076 - INFO -  * Debugger PIN: 562-794-287
+2024-12-14 17:19:47,110 - INFO - User worker@example.com accessed jobs index.
+2024-12-14 17:19:47,130 - INFO - 127.0.0.1 - - [14/Dec/2024 17:19:47] "GET / HTTP/1.1" 200 -
+2024-12-14 17:19:48,991 - INFO - User worker@example.com accessed the admin dashboard.
+2024-12-14 17:19:48,998 - INFO - 127.0.0.1 - - [14/Dec/2024 17:19:48] "GET /admin_dashboard HTTP/1.1" 200 -
+2024-12-14 17:19:49,792 - INFO - User worker@example.com accessed inventory page with filters.
+2024-12-14 17:19:49,814 - INFO - 127.0.0.1 - - [14/Dec/2024 17:19:49] "GET /inventory/inventory HTTP/1.1" 200 -
+2024-12-14 17:19:52,520 - INFO - User worker@example.com accessed inventory page with filters.
+2024-12-14 17:19:52,528 - INFO - 127.0.0.1 - - [14/Dec/2024 17:19:52] "GET /inventory/inventory?combined_filter=product_name&sub_filter=2268 HTTP/1.1" 200 -

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        /* Genel stiller */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%; /* Yüksekliği %100 olarak ayarladık */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center; /* Ortalamak için */
+            align-items: center; /* Ortalamak için */
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .add-button-container, .back-link-container {
+            display: inline-block;
+        }
+        
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .add-button {
+            background-color: #40e0d0;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-button:hover {
+            background-color: #32b8a5;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        .alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border-color: #bee5eb;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border-color: #ffeeba;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .text-end {
+            margin-bottom: 20px;
+        }
+        .container {
+            background-color: #f0f8ff;  /* Dış alanın rengini belirliyoruz */
+            width: 100%;
+            max-width: 1000px;
+            padding: 20px;
+        }
+
+        /* Add Product Form Stil */
+        .form-container {
+            background-color: #ffffff; 
+            border-radius: 8px;  
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+
+        .form-container h1 {
+            color: #2196F3;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+            text-align: left;
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus, select:focus {
+            border-color: #2196F3;
+        }
+
+        button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1976D2;
+        }
+
+        button:active {
+            background-color: #2196F3;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #2196F3;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hexagon-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 60px;
+            height: 60px;
+            background-color: #007bff;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Information Management</h1>
+        
+        <div class="back-link-container">
+            <a href="{{ url_for('product.pi_index') }}" class="back-link">Back to Product List</a>
+        </div>
+
+        <div class="form-container">
+            <h1>Add New Product</h1>
+            {% if error %}
+                <p class="error-message">{{ error }}</p>
+            {% endif %}
+
+            <form method="POST">
+                <div class="form-group">
+                    <label for="product_name">Product Name</label>
+                    <input type="text" id="product_name" name="product_name" class="form-control" required>
+                </div>
+                <label for="category_id">Category:</label>
+                <select id="category_id" name="category_id" required>
+                    {% for category in categories %}
+                    <option value="{{ category[0] }}">{{ category[1] }}</option>
+                    {% endfor %}
+                </select>
+            
+                <label for="subcategory_id">Subcategory:</label>
+                <select id="subcategory_id" name="subcategory_id" required>
+                    {% for subcategory in subcategories %}
+                    <option value="{{ subcategory[0] }}">{{ subcategory[1] }}</option>
+                    {% endfor %}
+                </select>
+            
+                <label for="supplier_id">Supplier:</label>
+                <select id="supplier_id" name="supplier_id" required>
+                    {% for supplier in suppliers %}
+                    <option value="{{ supplier[0] }}">{{ supplier[1] }}</option>
+                    {% endfor %}
+                </select>
+                <div class="form-group">
+                    <label for="product_status">Product Status</label>
+                    <input type="text" id="product_status" name="product_status" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="list_price">List Price</label>
+                    <input type="number" id="list_price" name="list_price" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="min_price">Min Price</label>
+                    <input type="number" id="min_price" name="min_price" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Product</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hexagon at the top left corner -->
+    <div class="hexagon-container">
+        GD
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
