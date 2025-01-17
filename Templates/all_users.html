@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Information</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 20%;
+            height: 100vh;
+            background-color: #fff;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #6EA3DE;
+            color: #fff;
+        }
+
+        .sidebar ul li.logout {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: calc(100% - 40px);
+        }
+
+        .sidebar ul li.logout a {
+            background-color: #cf0a0a;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar ul li.logout a:hover {
+            background-color: #5a92c1;
+        }
+
+        .topbar {
+            background-color: #6EA3DE;
+            color: white;
+            padding: 20px;
+            margin-left: 20%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topbar h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .user-greeting {
+            display: flex;
+            align-items: center;
+        }
+
+        .content {
+            margin-left: 20%;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .panel {
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-height: 620px;
+        }
+
+        .user-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .user-table th, .user-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .user-table th {
+            background-color: #f4f4f4;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        .edit-btn, .delete-btn, .add-btn {
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .edit-btn {
+            background-color: #6EA3DE;
+            color: white;
+        }
+
+        .edit-btn:hover {
+            background-color: #558ac2;
+        }
+
+        .delete-btn {
+            background-color: #cf0a0a;
+            color: white;
+        }
+
+        .delete-btn:hover {
+            background-color: #5a92c1;
+        }
+
+        .add-btn {
+            background-color: #4CAF50;
+            color: white;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .add-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="{{ url_for('dashboard.admin_dashboard') }}">Dashboard</a>
+            </li>
+            <li>
+                <a href="{{ url_for('personal_info.get_personal_info') }}">Personal Information</a>
+            </li>
+            <li>
+                <a href="{{ url_for('personal_info.get_all_user_information') }}">Users' Information</a>
+            </li>
+            <li class="logout">
+                <a href="{{ url_for('auth.logout') }}">LOGOUT</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <h2>Users Information</h2>
+        <div class="user-greeting">
+            <span>{{ session['name'] }}</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="panel">
+            <h2>All Users</h2>
+
+            <!-- Add User Button -->
+            <a href="{{ url_for('personal_info.add_user') }}" class="add-btn">Add User</a>
+
+            <table class="user-table">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>User Name</th>
+                        <th>User Role</th>
+                        <th>User Email</th>
+                        <th>Company Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.role }}</td>
+                        <td>{{ user.user_email }}</td>
+                        <td>{{ user.cmp_email }}</td>
+                        <td class="action-btns">
+                            <a href="{{ url_for('personal_info.user_edit', user_id=user.id) }}" class="edit-btn">Edit</a>
+                            <a href="{{ url_for('personal_info.user_delete', user_id=user.id) }}" class="delete-btn">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

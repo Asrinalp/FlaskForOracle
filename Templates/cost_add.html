@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Cost</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2196F3; /* Mavi renk */
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+            text-align: left;
+        }
+
+        input[type="text"], input[type="number"], input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus {
+            border-color: #2196F3; /* Mavi renk */
+        }
+
+        button {
+            background-color: #2196F3; /* Mavi renk */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1976D2; /* Daha koyu mavi */
+        }
+
+        button:active {
+            background-color: #2196F3; /* Mavi renk */
+        }
+
+        a {
+            color: #2196F3; /* Mavi renk */
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hata mesajı stili */
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* Prevent input focus color change */
+        input:focus, button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Add New Cost</h1>
+
+        <!-- Hata Mesajı Gösterimi -->
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+
+        <!-- Form -->
+        <form method="post">
+            <label for="product_id">Product ID:</label>
+            <input type="text" id="product_id" name="product_id" value="{{ product_id | default('') }}" required>
+            <br>
+            <label for="time_id">Time ID:</label>
+            <input type="date" id="time_id" name="time_id" value="{{ time_id | default('') }}" required>
+            <br>
+            <label for="promo_id">Promo ID:</label>
+            <input type="number" id="promo_id" name="promo_id" value="{{ promo_id | default('') }}" required>
+            <br>
+            <label for="channel_id">Channel ID:</label>
+            <input type="number" id="channel_id" name="channel_id" value="{{ channel_id | default('') }}" required>
+            <br>
+            <label for="unit_cost">Unit Cost:</label>
+            <input type="number" id="unit_cost" name="unit_cost" value="{{ unit_cost | default('') }}" required>
+            <br>
+            <label for="unit_price">Unit Price:</label>
+            <input type="number" id="unit_price" name="unit_price" value="{{ unit_price | default('') }}" required>
+            <br>
+            <button type="submit">Add Cost</button>
+        </form>
+        <a href="{{ url_for('costs.index') }}">Back to Cost List</a>
+    </div>
+</body>
+</html>

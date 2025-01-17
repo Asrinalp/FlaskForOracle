@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #2196F3;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .filter-container {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Order Details</h1>
+
+    <!-- Back to Dashboard Button -->
+    <div style="margin-bottom: 20px;">
+        <a href="{{ url_for('dashboard.worker_dashboard') }}" 
+           style="text-decoration: none; color: white; background-color: #2196F3; padding: 10px 20px; border-radius: 5px;">
+            Back to Dashboard
+        </a>
+    </div>
+    
+    <div class="filter-container">
+        <form method="POST" action="{{ url_for('order_details.order_details') }}">
+            <label for="order_id">Search by Order ID:</label>
+            <input type="text" id="order_id" name="order_id" placeholder="Enter Order ID">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th><a href="?sort_column=order_id&sort_order={{ 'desc' if sort_column == 'order_id' and sort_order == 'asc' else 'asc' }}">Order ID</a></th>
+                <th><a href="?sort_column=order_date&sort_order={{ 'desc' if sort_column == 'order_date' and sort_order == 'asc' else 'asc' }}">Order Date</a></th>
+                <th><a href="?sort_column=order_mode&sort_order={{ 'desc' if sort_column == 'order_mode' and sort_order == 'asc' else 'asc' }}">Order Mode</a></th>
+                <th><a href="?sort_column=customer_name&sort_order={{ 'desc' if sort_column == 'customer_name' and sort_order == 'asc' else 'asc' }}">Customer Name</a></th>
+                <th><a href="?sort_column=order_status&sort_order={{ 'desc' if sort_column == 'order_status' and sort_order == 'asc' else 'asc' }}">Status</a></th>
+                <th><a href="?sort_column=order_total&sort_order={{ 'desc' if sort_column == 'order_total' and sort_order == 'asc' else 'asc' }}">Total</a></th>
+                <th><a href="?sort_column=employee_name&sort_order={{ 'desc' if sort_column == 'employee_name' and sort_order == 'asc' else 'asc' }}">Employee Name</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if order_details %}
+                {% for detail in order_details %}
+                    <tr>
+                        <td>{{ detail[0] }}</td>
+                        <td>{{ detail[1] }}</td>
+                        <td>{{ detail[2] }}</td>
+                        <td>{{ detail[3] }}</td>
+                        <td>{{ detail[4] }}</td>
+                        <td>{{ detail[5] }}</td>
+                        <td>{{ detail[6] }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="7">No order details found.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>

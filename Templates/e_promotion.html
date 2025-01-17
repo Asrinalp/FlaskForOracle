@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promotions Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .filter-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .filter-container form {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .filter-container input {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .filter-container button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .filter-container button:hover {
+            background-color: #1976D2;
+        }
+        .back-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .back-button:hover {
+            background-color: #45A049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #2196F3;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .action-buttons a {
+            text-decoration: none;
+            padding: 5px 10px;
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .edit-button {
+            background-color: #4CAF50;
+        }
+        .edit-button:hover {
+            background-color: #45A049;
+        }
+        .view-button {
+            background-color: #2196F3;
+        }
+        .view-button:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Promotions Management</h1>
+
+    <!-- Filter Section -->
+    <div class="filter-container">
+        <form method="GET" action="{{ url_for('promotions.view_promotions') }}">
+            <label for="promo_id">Filter by Promo ID:</label>
+            <input type="text" id="promo_id" name="promo_id" placeholder="Enter Promo ID" value="{{ promo_id_filter }}">
+            <button type="submit">Filter</button>
+        </form>
+        <a href="{{ url_for('dashboard.worker_dashboard') }}" class="back-button">Back to Dashboard</a>
+    </div>
+
+    <!-- Promotions Table -->
+    <table>
+        <table>
+            <thead>
+                <tr>
+                    <th><a href="{{ url_for('promotions.view_promotions', sort_column='PROMO_ID', sort_order=next_sort_order) }}">Promo ID</a></th>
+                    <th><a href="{{ url_for('promotions.view_promotions', sort_column='PROMO_NAME', sort_order=next_sort_order) }}">Promo Name</a></th>
+                    <th><a href="{{ url_for('promotions.view_promotions', sort_column='PROMO_CATEGORY_ID', sort_order=next_sort_order) }}">Category ID</a></th>
+                    <th><a href="{{ url_for('promotions.view_promotions', sort_column='PROMO_COST', sort_order=next_sort_order) }}">Cost</a></th>
+                    <th><a href="{{ url_for('promotions.view_promotions', sort_column='PROMO_BEGIN_DATE', sort_order=next_sort_order) }}">Begin Date</a></th>
+                    <th><a href="{{ url_for('promotions.view_promotions', sort_column='PROMO_END_DATE', sort_order=next_sort_order) }}">End Date</a></th>
+                    <th><a href="{{ url_for('promotions.view_promotions', sort_column='USAGE_COUNT', sort_order=next_sort_order) }}">Usage Count</a></th>
+                    <th>Actions</th>
+                </tr>
+            </thead>        
+        <tbody>
+            {% if promotions %}
+                {% for promo in promotions %}
+                <tr>
+                    <td>{{ promo[0] }}</td> <!-- Promo ID -->
+                    <td>{{ promo[1] }}</td> <!-- Promo Name -->
+                    <td>{{ promo[3] }}</td> <!-- Category ID -->
+                    <td>${{ "%.2f"|format(promo[2]) }}</td> <!-- Cost -->
+                    <td>{{ promo[4] }}</td> <!-- Begin Date -->
+                    <td>{{ promo[5] }}</td> <!-- End Date -->
+                    <td>{{ promo[6] }}</td> <!-- Usage Count -->
+                    <td class="action-buttons">
+                        <a href="{{ url_for('promotions.promotion_performance', promo_id=promo[0]) }}" class="view-button">View Performance</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="7" style="color: red; font-weight: bold;">No promotions found.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>

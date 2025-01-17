@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altıgenler Tasarımı</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f2f2f2;
+    }
+
+    .container {
+        position: relative;
+        width: 400px;
+        height: 400px;
+    }
+
+    .hexagon {
+        position: absolute;
+        clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+        touch-action: pan-x pan-y pinch-zoom;
+    }
+
+    /* Büyük Altıgen */
+    .hexagon-1 {
+        background-color: rgb(84, 152, 255);
+        width: 295.61px;
+        height: 256px;
+        transform: scale(0.75, 0.75);
+        transform-origin: 0px 0px;
+        top: 30px;
+        left: 50px;
+    }
+
+    /* Orta Altıgen */
+    .hexagon-2 {
+        background-color: rgb(28, 134, 255);
+        width: 295.61px;
+        height: 256px;
+        transform: scale(0.40, 0.40);
+        transform-origin: 0px 0px;
+        top: -20px;
+        left: 165px;
+    }
+
+    /* Küçük Altıgen */
+    .hexagon-3 {
+        background-color: rgb(7, 18, 173);
+        width: 295.61px;
+        height: 256px;
+        transform: scale(1.1, 1.1);
+        transform-origin: 0px 0px;
+        top: -120px;
+        left: -150px;
+    }
+    </style>
+    </head>
+<body>
+    <div class="body">
+        <div class="hexagon hexagon-3"></div>
+        <div class="hexagon hexagon-1"></div>
+        <div class="hexagon hexagon-2"></div>
+    </div>
+</body>
+</html>

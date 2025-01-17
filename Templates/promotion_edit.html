@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Promotion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            margin-top: 20px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #007bff;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Promotion</h1>
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+        <form method="POST">
+            <div class="form-group">
+                <label for="promo_name">Promotion Name</label>
+                <input type="text" id="promo_name" name="promo_name" class="form-control" value="{{ promotion['PROMO_NAME'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="promo_category_id">Category</label>
+                <select id="promo_category_id" name="promo_category_id" class="form-control" required>
+                    {% for category in categories %}
+                        <option value="{{ category[0] }}" {% if category[0] == promotion['PROMO_CATEGORY_ID'] %}selected{% endif %}>
+                            {{ category[1] }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="promo_subcategory_id">Subcategory</label>
+                <select id="promo_subcategory_id" name="promo_subcategory_id" class="form-control" required>
+                    {% for subcategory in subcategories %}
+                        <option value="{{ subcategory[0] }}" {% if subcategory[0] == promotion['PROMO_SUBCATEGORY_ID'] %}selected{% endif %}>
+                            {{ subcategory[1] }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="promo_cost">Promotion Cost</label>
+                <input type="number" id="promo_cost" name="promo_cost" class="form-control" value="{{ promotion['PROMO_COST'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="promo_begin_date">Begin Date</label>
+                <input type="date" id="promo_begin_date" name="promo_begin_date" class="form-control" value="{{ promotion['PROMO_BEGIN_DATE']|date('Y-m-d') }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="promo_end_date">End Date</label>
+                <input type="date" id="promo_end_date" name="promo_end_date" class="form-control" value="{{ promotion['PROMO_END_DATE']|date('Y-m-d') }}" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+        <a href="{{ url_for('promotion.index') }}" class="back-link">Back to Promotion List</a>
+    </div>
+</body>
+</html>

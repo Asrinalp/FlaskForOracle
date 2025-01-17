@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* Genel Stil */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+
+        /* Sol Menü */
+        .sidebar {
+            width: 20%;
+            height: 100vh;
+            background-color: #fff;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #6EA3DE;
+            color: #fff;
+        }
+
+        .sidebar ul li.logout {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: calc(100% - 40px);
+        }
+
+        .sidebar ul li.logout a {
+            background-color: #cf0a0a;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar ul li.logout a:hover {
+            background-color: #5a92c1;
+        }
+
+        /* Üst Bar */
+        .topbar {
+            background-color: #6EA3DE;
+            color: white;
+            padding: 20px;
+            margin-left: 20%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topbar h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .user-greeting {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-greeting img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Panel */
+        .panel {
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 75%;
+        }
+
+        /* İçerik Alanı */
+        .content {
+            margin-left: 20%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        /* Sağdaki Butonlar */
+        .right-buttons {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-left: 5%;
+        }
+
+        .right-buttons .card {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: center;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .right-buttons .button {
+            text-decoration: none;
+            background-color: #6EA3DE;
+            color: white;
+            padding: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .right-buttons .button:hover {
+            background-color: #5a92c1;
+        }
+
+        /* Alt Butonlar */
+        .bottom-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            margin-left: 21%;
+            width: 75%;
+            gap: 20px;
+        }
+
+        .bottom-buttons .button {
+            text-decoration: none;
+            background-color: #6EA3DE;
+            color: white;
+            padding: 15px 30px;
+            font-size: 16px;
+            text-align: center;
+            font-weight: bold;
+            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .bottom-buttons .button:hover {
+            background-color: #5a92c1;
+        }
+
+        /* Bottom Panel ve Graph Panel */
+        .bottom-panel-container {
+            display: flex;
+            justify-content: space-between;
+            width: 75%;
+            margin-left: 20%;
+            gap: 10px;
+        }
+
+        .bottom-panel {
+            background-color: #f4f4f9;
+            padding: 40px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 60%;
+            min-height: 300px;
+        }
+
+        .graph-panel {
+            background-color: #ffffff;
+            padding: 40px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 40%;
+            min-height: 300px;
+            display: none; /* Başlangıçta gizli */
+        }
+
+        .bottom-panel h3, .graph-panel h3 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .bottom-panel p, .graph-panel p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .bottom-panel img, .graph-panel img {
+            width: 100%;
+        }
+    </style>
+
+    <script>
+        function updateContentBasedOnSelection() {
+            var selectedOption = document.getElementById("data-selector").value;
+            var newUrl = "/admin_dashboard/" + selectedOption;  // yeni URL ile yönlendirme yapılır
+            window.location.href = newUrl;
+        }
+
+        function toggleGraphPanel() {
+            var graphPanel = document.getElementById("graph-panel");
+            if (graphPanel.style.display === "none" || graphPanel.style.display === "") {
+                graphPanel.style.display = "block";
+            } else {
+                graphPanel.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Sol Menü -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="{{url_for('dashboard.admin_dashboard')}}">Dashboard</a></li>
+            <li><a href="{{url_for('personal_info.get_personal_info')}}">User Info</a></li>
+            <li class="logout"><a href="{{ url_for('auth.logout') }}">LOGOUT</a></li>
+        </ul>
+    </div>
+
+    <!-- Üst Bar -->
+    <div class="topbar">
+        <h2>Dashboard</h2>
+        <div class="user-greeting">
+            <img src="https://via.placeholder.com/40" alt="User Avatar">
+            <span>{{ session['name'] }}</span>
+        </div>
+    </div>
+
+    <!-- İçerik -->
+    <div class="content">
+        <!-- Panel -->
+        <div class="panel">
+            <h2>Welcome To Admin Panel</h2>
+            <p>Wagnify Company...</p>
+        </div>
+
+        <!-- Sağdaki Butonlar -->
+        <div class="right-buttons">
+            <div class="card">
+                <a href="{{ url_for('jobs.index') }}" class="button">JOBS LIST</a>
+            </div>
+            <div class="card">
+                <a href="{{ url_for('department.index_dpr') }}" class="button">DEPARTMENT LIST</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alt Butonlar -->
+    <div class="bottom-buttons">
+        <a href="{{ url_for('employee.employees_index') }}" class="button">INFORMATION OF EMPLOYEES</a>
+        <a href="{{ url_for('sales.index') }}" class="button">INFORMATION OF SALES</a>
+        <a href="{{ url_for('costs.index') }}" class="button">INFORMATION OF COSTS</a>
+        <a href="{{ url_for('product.pi_index') }}" class="button">INFORMATION OF PRODUCTS</a>
+        <a href="{{ url_for('promotion.index') }}" class="button">INFORMATION OF PROMOTIONS</a>
+        <a href="{{ url_for('inventory.inventory_index') }}" class="button">INFORMATION OF INVENTORIES</a>
+    </div>
+
+    <!-- Alt Panel ve Graph Panel -->
+    <div class="bottom-panel-container">
+        <div class="bottom-panel">
+            <h3>{{ content_title }}</h3>
+
+            <!-- ComboBox (Dropdown) -->
+            <select id="data-selector" onchange="updateContentBasedOnSelection()">
+                <option value="preference">Choose...</option>
+                <option value="sales" {% if content_title == "Sales Information" %} selected {% endif %}>Sales</option>
+                <option value="employee" {% if content_title == "Top 10 Employees" %} selected {% endif %}>Employee</option>
+                <option value="order" {% if content_title == "Orders Overview" %} selected {% endif %}>Order</option>
+                <option value="customer" {% if content_title =="Customer's Country" %} selected {% endif %}>Customers</option>
+            </select>
+
+            <button onclick="window.location.href='{{ url_for('dashboard.admin_dashboard') }}'" class="button">Reset</button>
+
+            <br><button onclick="toggleGraphPanel()" class="button">Show/Hide Graph</button></br>
+
+            <table>
+                <thead>
+                    {% if content_title == 'Sales Information' %}
+                        <th>Sale ID</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Date</th>
+                    {% elif content_title == 'Top 10 Employees' %}
+                        <th>Employee Name</th>
+                        <th>Total Sales</th>
+                    {% elif content_title == 'Orders Overview' %}
+                        <th>Order ID</th>
+                        <th>Product</th>
+                        <th>Date</th>
+                    {% endif %}
+                </thead>
+                <tbody>
+                    {% for data in sales_data or employee_sales_data or order_data %}
+                        <tr>
+                            {% if content_title == 'Sales Information' %}
+                                <td>{{ data[0] }}</td>
+                                <td>{{ data[1] }}</td>
+                                <td>{{ data[2] }}</td>
+                                <td>{{ data[3] }}</td>
+                                <td>{{ data[4] }}</td>
+                            {% elif content_title == 'Top 10 Employees' %}
+                                <td>{{ data[1] }}</td>
+                                <td>{{ data[2] }}</td>
+                            {% elif content_title == 'Orders Overview' %}
+                                <td>{{ data[0] }}</td>
+                                <td>{{ data[1] }}</td>
+                                <td>{{ data[2] }}</td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div id="graph-panel" class="graph-panel">
+            <h3>{{ content_title }} Graph</h3>
+            <img src="data:image/png;base64,{{ img_base64 }}" alt="Graph showing {{ content_title }}">
+        </div>
+    </div>
+
+</body>
+</html>

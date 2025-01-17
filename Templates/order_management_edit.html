@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #2196F3;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1976D2;
+        }
+        a {
+            display: block;
+            margin-top: 10px;
+            color: #2196F3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .output-container {
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Edit Order</h1>
+        <form method="POST">
+            <label for="order_id">Order ID:</label>
+            <input type="text" id="order_id" name="order_id" value="{{ order[0] }}" readonly>
+            
+            <label for="order_status">Order Status:</label>
+            <select id="order_status" name="order_status" required>
+                {% for i in range(11) %}
+                    <option value="{{ i }}" {% if order[1] == i %}selected{% endif %}>{{ i }}</option>
+                {% endfor %}
+            </select>
+            
+            <button type="submit">Save Changes</button>
+        </form>
+        <a href="{{ url_for('order.orders_index') }}">Back to Order List</a>
+
+        {% if dbms_output %}
+        <div class="output-container">
+            <h2>Output:</h2>
+            <ul>
+                {% for line in dbms_output %}
+                    <li>{{ line }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

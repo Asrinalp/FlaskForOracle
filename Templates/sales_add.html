@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Sale</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2196F3;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+            text-align: left;
+        }
+
+        input[type="number"],
+        input[type="text"],
+        select {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus,
+        input[type="text"]:focus,
+        select:focus {
+            border-color: #2196F3;
+        }
+
+        button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1976D2;
+        }
+
+        button:active {
+            background-color: #2196F3;
+        }
+
+        a {
+            color: #2196F3;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        input:focus, button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Add New Sale</h1>
+        <form method="post">
+            <label for="product_id">Product:</label>
+            <select id="product_id" name="product_id" required>
+                <option value="">Select Product</option>
+                {% for product in products %}
+                    <option value="{{ product[0] }}">{{ product[1] }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="customer_id">Customer:</label>
+            <select id="customer_id" name="customer_id" required>
+                <option value="">Select Customer</option>
+                {% for customer in customers %}
+                    <option value="{{ customer[0] }}">{{ customer[1] }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="channel_id">Channel:</label>
+            <select id="channel_id" name="channel_id" required>
+                <option value="">Select Channel</option>
+                {% for channel in channels %}
+                    <option value="{{ channel[0] }}">{{ channel[1] }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="promo_id">Promo:</label>
+            <select id="promo_id" name="promo_id" required>
+                <option value="">Select Promo</option>
+                {% for promo in promos %}
+                    <option value="{{ promo[0] }}">{{ promo[1] }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="quantity_sold">Quantity Sold:</label>
+            <input type="number" id="quantity_sold" name="quantity_sold" step="0.01" required>
+
+            <label for="amount_sold">Amount Sold:</label>
+            <input type="number" id="amount_sold" name="amount_sold" step="0.01" required>
+
+            <button type="submit">Add Sale</button>
+        </form>
+        <a href="{{ url_for('sales.index') }}">Back to Sales List</a>
+    </div>
+</body>
+</html>

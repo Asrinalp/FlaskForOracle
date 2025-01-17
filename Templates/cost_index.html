@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost List</title>
+    <style>
+        /* Genel Stil */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Başlık Stili */
+        h1 {
+            color: #2196F3;
+            margin: 20px 0;
+            font-size: 30px;
+        }
+
+        /* Altıgen şekiller */
+        .hexagon, .hexagon-dark {
+            
+            position: absolute;
+            top: -25px;
+            left: -20px;
+            width: 200px;
+            height: 88px;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        .hexagon {
+            background-color: #2196F3;
+        }
+
+        .hexagon-dark {
+            top: 15px;
+            width: 180px;
+            height: 80px;
+            background-color: #1976D2;
+            z-index: -1;
+        }
+
+        /* Tablo Stili */
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: #fff;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2196F3;
+            color: white;
+            cursor: pointer;
+        }
+
+        th:hover {
+            background-color: #1976D2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Buton ve Arama Kutusu */
+        .button-container {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .add-button {
+            background-color: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .add-button:hover {
+            background-color: #1976D2;
+        }
+
+        .search-container {
+            margin: 20px;
+            text-align: center;
+        }
+
+        #costSearch {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        #costSearch:focus {
+            outline: none;
+            border-color: #2196F3;
+        }
+
+        /* Admin Dashboard Link */
+        .back-to-dashboard {
+            margin-top: 20px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #2196F3;
+        }
+
+        .back-to-dashboard:hover {
+            color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Altıgen şekiller -->
+    <div class="hexagon"></div>
+    <div class="hexagon-dark"></div>
+
+    <h1>Cost List</h1>
+
+    <!-- Back to Admin Dashboard Link -->
+    <div class="button-container">
+        <a href="{{ url_for('dashboard.admin_dashboard') }}" class="back-to-dashboard">Back to Admin Dashboard</a>
+    </div>
+
+    <!-- Product ID Seçme Formu -->
+    <div class="product-select-container">
+        <form method="POST" action="{{ url_for('costs.index') }}">
+            <label for="product_id">Select Product ID:</label>
+            <input type="number" id="product_id" name="product_id" placeholder="Enter Product ID" required>
+            <button type="submit">Filter</button>
+            <!-- Reset button to reload the page -->
+            <button type="button" onclick="window.location.href='{{ url_for('costs.index')}}';">Reset</button>
+        </form>
+    </div>
+
+    <!-- Add New Cost butonu -->
+    <div class="button-container">
+        <a href="{{ url_for('costs.add_cost') }}" class="add-button">Add New Cost</a>
+    </div>
+
+    <!-- Tablo -->
+    <table>
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">Product ID</th>
+                <th onclick="sortTable(1)">Product Name</th>
+                <th onclick="sortTable(2)">Time ID</th>
+                <th onclick="sortTable(3)">Unit Cost</th>
+                <th onclick="sortTable(4)">Unit Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody data-sort-order="asc">
+            {% for cost in costs %}
+            <tr>
+                <td>{{ cost[0] }}</td>
+                <td>{{ cost[1] }}</td>
+                <td>{{ cost[2] }}</td>
+                <td>{{ cost[3] }}</td>
+                <td>{{ cost[4] }}</td>
+                <td>
+                    <form action="{{ url_for('costs.delete_cost', product_id=cost[0]) }}" method="POST" style="display:inline;">
+                        <button type="submit" style="background-color: red; color: white; border: none; padding: 5px 10px; font-size: 14px; border-radius: 4px;">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        function sortTable(columnIndex) {
+            const tableBody = document.querySelector("table tbody");
+            const rows = Array.from(tableBody.rows);
+            const isAscending = tableBody.getAttribute("data-sort-order") === "asc";
+            tableBody.setAttribute("data-sort-order", isAscending ? "desc" : "asc");
+
+            rows.sort((rowA, rowB) => {
+                const cellA = rowA.cells[columnIndex].innerText.toLowerCase();
+                const cellB = rowB.cells[columnIndex].innerText.toLowerCase();
+
+                return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+            });
+
+            tableBody.innerHTML = "";
+            rows.forEach(row => tableBody.appendChild(row));
+        }
+
+        function filterCosts() {
+            const query = document.getElementById("costSearch").value.toLowerCase();
+            const rows = document.querySelectorAll("table tbody tr");
+
+            rows.forEach(row => {
+                const productID = row.cells[0].innerText.toLowerCase();
+                row.style.display = productID.includes(query) ? "" : "none";
+            });
+        }
+    </script>
+</body>
+</html>

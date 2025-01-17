@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Inventory</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1>Add New Inventory & Edit Inventory</h1>
+    <form method="POST" action="{{ url_for('inventory.add_edit_inventory') }}">
+        <div class="mb-3">
+            <label for="product_id" class="form-label">Product ID</label>
+            <input type="text" class="form-control" id="product_id" name="product_id" required>
+        </div>
+        <div class="mb-3">
+            <label for="warehouse_ids" class="form-label">Warehouse</label>
+            <select class="form-select" id="warehouse_ids" name="warehouse_id" required>
+                <option value="" disabled selected>-- Select Warehouse --</option>
+                {% if warehouse_ids %}
+                    {% for warehouse in warehouse_ids %}
+                        <option value="{{ warehouse[0] }}">{{ warehouse[1] }}</option>
+                    {% endfor %}
+                {% else %}
+                    <option value="" disabled>No warehouses available</option>
+                {% endif %}
+            </select>
+            
+        </div>
+        <div class="mb-3">
+            <label for="quantity_on_hand" class="form-label">Quantity on Hand</label>
+            <input type="number" class="form-control" id="quantity_on_hand" name="quantity_on_hand" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Inventory</button>
+    </form>
+</div>
+
+</body>
+</html>

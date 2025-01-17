@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wagnify Şirketi - Giriş</title>
+    <!-- Google Sign-In Library -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    
+    <style>
+        /* Genel sayfa stilleri */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGdyZWVufGVufDB8fHx8MTY5ODc4MDk5OQ&ixlib=rb-4.0.3&q=80&w=1920') 
+                        no-repeat center center / cover;
+            color: #333;
+        }
+
+        /* Giriş formunun kapsayıcısı */
+        .login-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 350px;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #20db26;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #15981a;
+        }
+
+        .google-login {
+            background-color: #db4437;
+            margin-top: 10px;
+        }
+
+        .google-login:hover {
+            background-color: #a33526;
+        }
+
+        .error-message {
+            color: #d9534f;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Wagnify Şirketi</h1>
+
+        <!-- Hata Mesajı -->
+        {% if error_message %}
+            <p class="error-message">{{ error_message }}</p>
+        {% endif %}
+
+        <!-- Email ve Şifre ile Giriş -->
+        <form method="POST" id="email-login-form">
+            <input type="hidden" name="login_type" value="standard">
+            
+            <label for="email">E-posta</label>
+            <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required>
+            
+            <label for="password">Şifre</label>
+            <input type="password" id="password" name="password" placeholder="Şifrenizi girin" required>
+            
+            <button type="submit">Giriş Yap</button>
+        </form>
+
+        <!-- Google ile Giriş -->
+        <div id="g_id_onload"
+             data-client_id="998396546977-t0hilul0lj44adp5osbaj31eulf4g8ek.apps.googleusercontent.com"
+             data-callback="handleGoogleSignIn">
+        </div>
+        <div class="g_id_signin" 
+             data-type="standard" 
+             data-theme="outline" 
+             data-size="large">
+        </div>
+    </div>
+
+    <script>
+        function handleGoogleSignIn(response) {
+            const credential = response.credential;
+
+            // Create a form to send the Google token to the server
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = "{{ url_for('auth.login') }}";
+
+            // Hidden input for login type and Google token
+            const loginTypeInput = document.createElement('input');
+            loginTypeInput.type = 'hidden';
+            loginTypeInput.name = 'login_type';
+            loginTypeInput.value = 'google';
+
+            const tokenInput = document.createElement('input');
+            tokenInput.type = 'hidden';
+            tokenInput.name = 'google_token';
+            tokenInput.value = credential;
+
+            form.appendChild(loginTypeInput);
+            form.appendChild(tokenInput);
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+</body>
+</html>

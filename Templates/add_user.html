@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2196F3;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            color: #2196F3;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Add New User</h1>
+        <form method="post" action="{{ url_for('personal_info.add_user') }}">
+            <label for="user_name">User Name:</label>
+            <input type="text" id="user_name" name="user_name" placeholder="Enter user's name" required>
+
+            <label for="user_role">User Role:</label>
+            <select id="user_role" name="user_role" required>
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+            </select>
+
+            <label for="user_email">User Email:</label>
+            <input type="email" id="user_email" name="user_email" placeholder="Enter user's email" required>
+
+            <label for="user_password">Password:</label>
+            <input type="password" id="user_password" name="user_password" placeholder="Enter password" required>
+
+            <label for="cmp_email">Company Email:</label>
+            <input type="email" id="cmp_email" name="cmp_email" placeholder="Enter company email" required>
+
+            <button type="submit">Add User</button>
+        </form>
+
+        <a href="{{ url_for('personal_info.get_all_user_information') }}">Back to User List</a>
+    </div>
+
+</body>
+</html>

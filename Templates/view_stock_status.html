@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #2196F3;
+            color: white;
+            cursor: pointer;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .filter-container {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .filter-container input, .filter-container button {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .filter-container button {
+            background-color: #2196F3;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        .filter-container button:hover {
+            background-color: #1976D2;
+        }
+        .back-button {
+            background-color: #2196F3;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+        }
+        .back-button:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stock Management</h1>
+
+    <div class="filter-container">
+        <form method="GET" action="{{ url_for('stock.view_stock_status') }}">
+            <label for="product_id">Filter by Product ID:</label>
+            <input type="number" id="product_id" name="product_id" value="{{ product_id_filter }}">
+            <button type="submit">Search</button>
+            <a href="{{ url_for('dashboard.worker_dashboard') }}" class="back-button">Back to Dashboard</a>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th><a href="{{ url_for('stock.view_stock_status', sort_column='PRODUCT_ID', sort_order='ASC' if sort_order == 'DESC' else 'DESC') }}">Product ID</a></th>
+                <th><a href="{{ url_for('stock.view_stock_status', sort_column='PRODUCT_NAME', sort_order='ASC' if sort_order == 'DESC' else 'DESC') }}">Product Name</a></th>
+                <th><a href="{{ url_for('stock.view_stock_status', sort_column='WAREHOUSE_ID', sort_order='ASC' if sort_order == 'DESC' else 'DESC') }}">Warehouse ID</a></th>
+                <th><a href="{{ url_for('stock.view_stock_status', sort_column='QUANTITY_ON_HAND', sort_order='ASC' if sort_order == 'DESC' else 'DESC') }}">Quantity</a></th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if stocks %}
+                {% for stock in stocks %}
+                    <tr>
+                        <td>{{ stock[0] }}</td>
+                        <td>{{ stock[1] }}</td>
+                        <td>{{ stock[2] }}</td>
+                        <td>{{ stock[3] }}</td>
+                        <td>
+                            <a href="{{ url_for('stock.edit_stock', product_id=stock[0], warehouse_id=stock[2]) }}" class="edit-button">Edit</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5">No stock data available.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>

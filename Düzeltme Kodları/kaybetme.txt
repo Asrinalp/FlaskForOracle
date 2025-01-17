@@ -1,0 +1,173 @@
+from flask import Blueprint, render_template, request, redirect, url_for, session, current_app
+import cx_Oracle
+
+DATABASE_CONFIG = {
+    'user': 'USER1',
+    'password': '1234',
+    'dsn': 'localhost:1521/XEPDB1'
+}
+
+def get_db_connection():
+    connection = cx_Oracle.connect(
+        DATABASE_CONFIG['user'],
+        DATABASE_CONFIG['password'],
+        DATABASE_CONFIG['dsn']
+    )
+    return connection
+
+inventory_bp = Blueprint('inventory', __name__)
+
+@inventory_bp.route('/')
+def inventory_index():
+    if 'email' not in session:
+        current_app.logger.warning("Unauthorized access attempt to inventory index.")
+        return redirect(url_for('auth.login'))
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    filter_product_name = request.args.get('product_name')
+    filter_warehouse_name = request.args.get('warehouse_name')
+
+    query = '''
+        SELECT 
+            i.product_id,
+            pi.product_name,
+            w.warehouse_name,
+            i.quantity_on_hand
+        FROM 
+            inventories i
+        LEFT JOIN 
+            warehouses w ON i.warehouse_id = w.warehouse_id
+        LEFT JOIN 
+            product_information pi ON i.product_id = pi.product_id
+        WHERE 
+            pi.product_name IS NOT NULL
+    '''
+
+    parameters = {}
+    if filter_product_name:
+        query += ' AND pi.product_name = :product_name'
+        parameters['product_name'] = filter_product_name
+    if filter_warehouse_name:
+        query += ' AND w.warehouse_name = :warehouse_name'
+        parameters['warehouse_name'] = filter_warehouse_name
+
+    cursor.execute(query, parameters)
+    inventories = cursor.fetchall()
+
+    cursor.execute('SELECT DISTINCT product_name FROM product_information')
+    products = cursor.fetchall()
+
+    cursor.execute('SELECT DISTINCT warehouse_name FROM warehouses')
+    warehouses = cursor.fetchall()
+
+    conn.close()
+
+    return render_template('inventory_index.html', inventories=inventories, products=products, warehouses=warehouses,
+                           filter_product_name=filter_product_name, filter_warehouse_name=filter_warehouse_name)
+
+@inventory_bp.route('/add_edit', methods=('GET', 'POST'))
+def add_edit_inventory():
+    # Check if the user is logged in
+    if 'email' not in session:
+        current_app.logger.warning("Unauthorized access attempt to add/edit inventory.")
+        return redirect(url_for('auth.login'))
+
+    # Connect to the database
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    # Fetch product and warehouse information
+    cursor.execute('SELECT product_id, product_name FROM product_information')
+    products = cursor.fetchall()
+
+    cursor.execute('''SELECT DISTINCT
+                   warehouses.warehouse_id,  warehouses.warehouse_name FROM warehouses
+                   LEFT JOIN inventories i
+                    ON i.warehouse_id = warehouses.warehouse_id''')
+    warehouses = cursor.fetchall()
+
+    if request.method == 'POST':
+        # Get form inputs
+        warehouse_name = request.form.get('warehouse_id')  # Warehouse name (not warehouse_id)
+        product_id = request.form.get('product_id')
+        quantity_on_hand = request.form.get('quantity_on_hand')
+        print(warehouse_name)
+        # Validate inputs
+        if not warehouse_name or not product_id or not quantity_on_hand:
+            current_app.logger.error("Missing warehouse_name, product_id, or quantity_on_hand in POST request.")
+            return "Invalid input", 400
+
+        # Find warehouse_id from warehouse_name
+        cursor.execute('''SELECT warehouse_id FROM warehouses WHERE warehouse_name = :warehouse_name''', 
+                       {'warehouse_name': warehouse_name})
+        warehouse_id_result = cursor.fetchone()
+
+        if not warehouse_id_result:
+            current_app.logger.error(f"Warehouse with name {warehouse_name} not found.")
+            return "Warehouse not found", 404
+
+        warehouse_id = warehouse_id_result[0]  # Get the actual warehouse_id
+
+        # Prepare inventory data for insertion/update
+        inventory_data = {
+            'product_id': product_id,
+            'warehouse_id': warehouse_id,
+            'quantity_on_hand': quantity_on_hand
+        }
+
+        # Check if the inventory record already exists
+        existing_inventory = cursor.execute('''SELECT COUNT(*) FROM inventories
+                                              WHERE product_id = :product_id AND warehouse_id = :warehouse_id''',
+                                            inventory_data).fetchone()[0]
+
+        # Update or insert inventory record
+        if existing_inventory:
+            cursor.execute('''UPDATE inventories
+                              SET quantity_on_hand = :quantity_on_hand
+                              WHERE product_id = :product_id AND warehouse_id = :warehouse_id''',
+                           inventory_data)
+        else:
+            cursor.execute('''INSERT INTO inventories (product_id, warehouse_id, quantity_on_hand)
+                              VALUES (:product_id, :warehouse_id, :quantity_on_hand)''',
+                           inventory_data)
+
+        # Commit changes and close the connection
+        conn.commit()
+        conn.close()
+
+        # Log the action
+        current_app.logger.info(f"Inventory updated/added by user {session['email']}.")
+        return redirect(url_for('inventory.inventory_index'))
+
+    # Close the database connection
+    conn.close()
+
+    # Render the inventory form
+    return render_template('inventory_add.html', products=products, warehouses=warehouses)
+
+
+@inventory_bp.route('/delete', methods=['POST'])
+def delete_inventory(product_id, warehouse_id):
+    if 'email' not in session:
+        current_app.logger.warning("Unauthorized access attempt to delete inventory.")
+        return redirect(url_for('auth.login'))
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    try:
+        cursor.execute('''
+            DELETE FROM inventories
+            WHERE product_id = :product_id AND warehouse_id = :warehouse_id
+        ''', {'product_id': product_id, 'warehouse_id': warehouse_id})
+        conn.commit()
+        current_app.logger.info(f"Inventory record deleted by user {session['email']}.")
+    except cx_Oracle.DatabaseError as e:
+        conn.rollback()
+        current_app.logger.error(f"Error deleting inventory: {e}")
+    finally:
+        conn.close()
+
+    return redirect(url_for('inventory.inventory_index'))

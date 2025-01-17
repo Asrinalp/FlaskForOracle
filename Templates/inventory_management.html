@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .form-container {
+            margin-bottom: 20px;
+        }
+        .form-container input, .form-container button {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45A049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stock Management</h1>
+
+    <div class="form-container">
+        <form method="POST">
+            <label for="product_id">Product ID:</label>
+            <input type="number" id="product_id" name="product_id" required>
+
+            <label for="warehouse_id">Warehouse ID:</label>
+            <input type="number" id="warehouse_id" name="warehouse_id" required>
+
+            <label for="quantity_on_hand">Quantity:</label>
+            <input type="number" id="quantity_on_hand" name="quantity_on_hand" required>
+
+            <button type="submit">Update Stock</button>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th><a href="{{ url_for('inventory.view_stock_status', sort_column='PRODUCT_ID', sort_order='ASC' if sort_order == 'DESC' else 'DESC') }}">Product ID</a></th>
+                <th><a href="{{ url_for('inventory.view_stock_status', sort_column='PRODUCT_NAME', sort_order='ASC' if sort_order == 'DESC' else 'DESC') }}">Product Name</a></th>
+                <th><a href="{{ url_for('inventory.view_stock_status', sort_column='WAREHOUSE_ID', sort_order='ASC' if sort_order == 'DESC' else 'DESC') }}">Warehouse ID</a></th>
+                <th><a href="{{ url_for('inventory.view_stock_status', sort_column='QUANTITY_ON_HAND', sort_order='ASC' if sort_order == 'DESC' else 'DESC') }}">Quantity</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if stocks %}
+                {% for stock in stocks %}
+                    <tr>
+                        <td>{{ stock[0] }}</td>
+                        <td>{{ stock[1] }}</td>
+                        <td>{{ stock[2] }}</td>
+                        <td>{{ stock[3] }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="4">No stock data available.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>

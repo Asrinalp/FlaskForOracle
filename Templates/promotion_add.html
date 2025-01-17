@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Promotion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add New Promotion</h1>
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <div class="mb-3">
+                <label for="promo_name" class="form-label">Promotion Name</label>
+                <input type="text" id="promo_name" name="promo_name" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="promo_category" class="form-label">Category</label>
+                <select id="promo_category" name="promo_category" class="form-select" required>
+                    {% for category in categories %}
+                    <option value="{{ category[0] }}">{{ category[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="promo_subcategory" class="form-label">Subcategory</label>
+                <select id="promo_subcategory" name="promo_subcategory" class="form-select" required>
+                    {% for subcategory in subcategories %}
+                    <option value="{{ subcategory[0] }}">{{ subcategory[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="promo_cost" class="form-label">Cost</label>
+                <input type="text" id="promo_cost" name="promo_cost" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="promo_begin_date" class="form-label">Begin Date</label>
+                <input type="date" id="promo_begin_date" name="promo_begin_date" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="promo_end_date" class="form-label">End Date</label>
+                <input type="date" id="promo_end_date" name="promo_end_date" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Add Promotion</button>
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="{{ url_for('promotion.index') }}" class="btn btn-secondary">Back to Promotions</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

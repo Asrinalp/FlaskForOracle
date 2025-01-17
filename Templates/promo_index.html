@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promotion List</title>
+    <style>
+        /* Genel Stil */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Başlık Stili */
+        h1 {
+            color: #2196F3;
+            margin: 20px 0;
+            font-size: 30px;
+        }
+
+        /* Altıgen şekiller */
+        .hexagon, .hexagon-dark {
+            position: absolute;
+            top: -25px;
+            left: -20px;
+            width: 200px;
+            height: 88px;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        .hexagon {
+            background-color: #2196F3;
+        }
+
+        .hexagon-dark {
+            top: 15px;
+            width: 180px;
+            height: 80px;
+            background-color: #1976D2;
+            z-index: -1;
+        }
+
+        /* Tablo Stili */
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: #fff;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2196F3;
+            color: white;
+            cursor: pointer;
+        }
+
+        th:hover {
+            background-color: #1976D2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Buton ve Arama Kutusu */
+        .button-container {
+            margin: 20px;
+            text-align: center;
+        }
+
+
+
+        /* Admin Dashboard Link */
+        .back-to-dashboard {
+            margin-top: 20px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #2196F3;
+        }
+
+        .back-to-dashboard:hover {
+            color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Altıgen şekiller -->
+    <div class="hexagon"></div>
+    <div class="hexagon-dark"></div>
+
+    <h1>Promotion List</h1>
+
+    <!-- Back to Admin Dashboard Link -->
+    <div class="button-container">
+        <a href="{{ url_for('dashboard.admin_dashboard') }}" class="back-to-dashboard">Back to Admin Dashboard</a>
+    </div>
+
+
+
+    <!-- Tablo -->
+    <table>
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">Promo ID</th>
+                <th onclick="sortTable(1)">Promo Name</th>
+                <th onclick="sortTable(2)">Subcategory</th>
+                <th onclick="sortTable(3)">Category</th>
+                <th onclick="sortTable(4)">Promo Cost</th>
+                <th onclick="sortTable(5)">Promo Begin Date</th>
+                <th onclick="sortTable(6)">Promo End Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody data-sort-order="asc">
+            {% for promo in promotions %}
+            <tr>
+                <td>{{ promo[0] }}</td>
+                <td>{{ promo[1] }}</td>
+                <td>{{ promo[2] }}</td>
+                <td>{{ promo[3] }}</td>
+                <td>{{ promo[4] }}</td>
+                <td>{{ promo[5] }}</td>
+                <td>{{ promo[6] }}</td>
+                <td>
+                    <form action="{{ url_for('promotion.delete_promo', promo_id=promo[0]) }}" method="POST" style="display:inline;">
+                        <button type="submit" style="background-color: red; color: white; border: none; padding: 5px 10px; font-size: 14px; border-radius: 4px;">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        function sortTable(columnIndex) {
+            const tableBody = document.querySelector("table tbody");
+            const rows = Array.from(tableBody.rows);
+            const isAscending = tableBody.getAttribute("data-sort-order") === "asc";
+            tableBody.setAttribute("data-sort-order", isAscending ? "desc" : "asc");
+
+            rows.sort((rowA, rowB) => {
+                const cellA = rowA.cells[columnIndex].innerText.toLowerCase();
+                const cellB = rowB.cells[columnIndex].innerText.toLowerCase();
+
+                return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+            });
+
+            tableBody.innerHTML = "";
+            rows.forEach(row => tableBody.appendChild(row));
+        }
+    </script>
+</body>
+</html>

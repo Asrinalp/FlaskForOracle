@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+    <style>
+        /* Genel Stil */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+
+        /* Altıgen tasarım */
+        .hexagon {
+            position: absolute;
+            top: -25px;
+            left: -20px;
+            width: 200px;
+            height: 88px;
+            background-color: #2196F3;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        .hexagon-dark {
+            position: absolute;
+            top: 15px;
+            left: -20px;
+            width: 180px;
+            height: 80px;
+            background-color: #1976D2;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            z-index: -1;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            text-align: center;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        h1 {
+            color: #2196F3;
+            margin-bottom: 20px;
+        }
+
+        /* Filtre kutusu stilini iyileştirme */
+        .filters {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            gap: 10px;
+        }
+
+        .filter-box {
+            padding: 10px;
+            width: 50%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #fff;
+        }
+
+        .filter-box label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .filter-box select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Tablo tasarımı */
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2196F3;
+            color: white;
+            cursor: pointer;
+        }
+
+        th:hover {
+            background-color: #1976D2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Buton tasarımı */
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .add-button-container, .back-link-container {
+            display: inline-block;
+        }
+
+        .filter-button-container, .reset-button-container {
+            display: inline-block;
+        }
+
+        .add-button {
+            background-color: #230da5; /* Turkuaz rengi */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .add-button:hover {
+            background-color: #3a1de2; /* Turkuaz hover rengi */
+        }
+
+        .add-button:active {
+            background-color: #3a1de2; /* Turkuaz aktif rengi */
+        }
+
+        .filter-button-container button {
+            background-color: white; /* Beyaz arka plan */
+            color: #2196F3; /* Mavi renk yazı */
+            border: 1px solid #2196F3; /* Mavi sınır */
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .filter-button-container button:hover {
+            background-color: #f1f1f1; /* Hoverda hafif gri */
+        }
+
+        .filter-button-container button:active {
+            background-color: #ffffff; /* Aktifken beyaz kalır */
+        }
+
+        .reset-button-container button {
+            background-color: #F44336; /* Kırmızı arka plan */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .reset-button-container button:hover {
+            background-color: #D32F2F; /* Koyu kırmızı hover rengi */
+        }
+
+        .reset-button-container button:active {
+            background-color: #F44336; /* Kırmızı aktif rengi */
+        }
+
+        .edit-button, .delete-button {
+            text-decoration: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .edit-button {
+            background-color: #4CAF50;
+        }
+
+        .edit-button:hover {
+            background-color: #45A049;
+        }
+
+        .delete-button {
+            background-color: #F44336;
+        }
+
+        .delete-button:hover {
+            background-color: #D32F2F;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-link {
+            color: #2196F3;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="hexagon"></div>
+    <div class="hexagon-dark"></div>
+
+    <div class="content">
+        <h1>Employee List</h1>
+
+        <div class="button-container">
+            <div class="add-button-container">
+                <a href="{{ url_for('employee.add_employee') }}" class="add-button">Add Employee</a>
+            </div>
+            <div class="back-link-container">
+                <a href="{{ url_for('dashboard.admin_dashboard') }}" class="back-link">Back to Admin Panel</a>
+            </div>
+        </div>
+
+        <!-- Filtre Seçenekleri -->
+        <form method="get" action="{{ url_for('employee.filter_employees') }}">
+            <div class="filters">
+                <div class="filter-box">
+                    <label for="combined_filter">Filter By</label>
+                    <select name="combined_filter" id="combined_filter" onchange="updateSubFilter()">
+                        <option value="">-- Select Filter --</option>
+                        <option value="job">Job</option>
+                        <option value="department">Department</option>
+                        <option value="manager">Manager</option>
+                    </select>
+                </div>
+                <div class="filter-box hidden" id="sub_filter_box">
+                    <label for="sub_filter">Select Option</label>
+                    <select name="sub_filter" id="sub_filter">
+                        <!-- Seçenekler dinamik olarak eklenecek -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <div class="filter-button-container">
+                    <button type="submit" class="add-button">Filter</button>
+                </div>
+                <div class="reset-button-container">
+                    <button type="reset" class="add-button" onclick="window.location.href='{{ url_for('employee.employees_index') }}'">Reset</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Tablo -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Job</th>
+                    <th>Salary</th>
+                    <th>Manager</th>
+                    <th>Department</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if employees %}
+                    {% for employee in employees %}
+                        <tr>
+                            <td>{{ employee[0] }}</td>
+                            <td>{{ employee[1] }}</td>
+                            <td>{{ employee[2] }}</td>
+                            <td>{{ employee[3] }}</td>
+                            <td>{{ employee[4] }}</td>
+                            <td>{{ employee[5] }}</td>
+                            <td>{{ employee[6] }}</td>
+                            <td>{{ employee[7] }}</td>
+                            <td class="action-buttons">
+                                <a href="{{ url_for('employee.edit_employee', employee_id=employee[0]) }}" class="edit-button">Edit</a>
+                                <span>|</span>
+                                <form action="{{ url_for('employee.delete_employee', employee_id=employee[0]) }}" method="POST">
+                                    <button type="submit" class="delete-button">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="9">No employees found.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function updateSubFilter() {
+            const combinedFilter = document.getElementById('combined_filter');
+            const subFilterBox = document.getElementById('sub_filter_box');
+            const subFilter = document.getElementById('sub_filter');
+
+            // Alt seçenekleri temizle
+            subFilter.innerHTML = '';
+
+            if (combinedFilter.value === 'job') {
+                {% for job in jobs %}
+                subFilter.innerHTML += `<option value="{{ job[0] }}">{{ job[1] }}</option>`;
+                {% endfor %}
+            } else if (combinedFilter.value === 'department') {
+                {% for department in departments %}
+                subFilter.innerHTML += `<option value="{{ department[0] }}">{{ department[1] }}</option>`;
+                {% endfor %}
+            } else if (combinedFilter.value === 'manager') {
+                {% for manager in managers %}
+                subFilter.innerHTML += `<option value="{{ manager[0] }}">{{ manager[1] }}</option>`;
+                {% endfor %}
+            }
+
+            // Alt filtre kutusunu göster veya gizle
+            if (combinedFilter.value) {
+                subFilterBox.classList.remove('hidden');
+            } else {
+                subFilterBox.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

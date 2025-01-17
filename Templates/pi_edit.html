@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product Information</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        /* Genel stiller */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            max-width: 800px;
+            box-sizing: border-box;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h1 {
+            color: #2196F3;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus, select:focus {
+            border-color: #2196F3;
+        }
+
+        button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1976D2;
+        }
+
+        button:active {
+            background-color: #2196F3;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #2196F3;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Product Information</h1>
+        
+        <div class="back-link-container">
+            <a href="{{ url_for('product.pi_index') }}" class="back-link">Back to Product List</a>
+        </div>
+
+        <div class="form-container">
+            <h1>Update Product Details</h1>
+
+            {% if error %}
+                <p class="error-message">{{ error }}</p>
+            {% endif %}
+
+            <form method="POST">
+                <div class="form-group">
+                    <label for="product_name">Product Name</label>
+                    <input type="text" id="product_name" name="product_name" class="form-control" value="{{ product.product_name }}" required>
+                </div>
+                
+                <label for="category_id">Category:</label>
+                <select id="category_id" name="category_id" required>
+                    {% for category in categories %}
+                    <option value="{{ category[0] }}" {% if category[0] == product.category_id %} selected {% endif %}>{{ category[1] }}</option>
+                    {% endfor %}
+                </select>
+            
+                <label for="subcategory_id">Subcategory:</label>
+                <select id="subcategory_id" name="subcategory_id" required>
+                    {% for subcategory in subcategories %}
+                    <option value="{{ subcategory[0] }}" {% if subcategory[0] == product.subcategory_id %} selected {% endif %}>{{ subcategory[1] }}</option>
+                    {% endfor %}
+                </select>
+            
+                <label for="supplier_id">Supplier:</label>
+                <select id="supplier_id" name="supplier_id" required>
+                    {% for supplier in suppliers %}
+                    <option value="{{ supplier[0] }}" {% if supplier[0] == product.supplier_id %} selected {% endif %}>{{ supplier[1] }}</option>
+                    {% endfor %}
+                </select>
+
+                <div class="form-group">
+                    <label for="product_status">Product Status</label>
+                    <input type="text" id="product_status" name="product_status" class="form-control" value="{{ product.product_status }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="list_price">List Price</label>
+                    <input type="number" id="list_price" name="list_price" class="form-control" value="{{ product.list_price }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="min_price">Min Price</label>
+                    <input type="number" id="min_price" name="min_price" class="form-control" value="{{ product.min_price }}" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update Product</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

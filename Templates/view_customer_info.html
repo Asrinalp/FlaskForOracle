@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Customers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: #333;
+        }
+        table {
+            width: 90%;
+            margin: 10px 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 13px;
+        }
+        th, td {
+            padding: 4px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f7f7f7;
+            cursor: pointer;
+        }
+        th.sortable:hover {
+            background-color: #e1e1e1;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        a, button {
+            background-color: #2196F3;
+            color: white;
+            padding: 6px 10px;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        a:hover, button:hover {
+            background-color: #1976D2;
+        }
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            margin-bottom: 10px;
+        }
+        .add-button {
+            text-align: right;
+        }
+    </style>
+    <script>
+        function sortTable(n) {
+            const table = document.getElementById("customerTable");
+            const rows = Array.from(table.rows).slice(1);
+            const dir = table.getAttribute("data-sort-dir") === "asc" ? "desc" : "asc";
+            const sortedRows = rows.sort((a, b) => {
+                const x = a.cells[n].innerText.toLowerCase();
+                const y = b.cells[n].innerText.toLowerCase();
+                return dir === "asc" ? (x > y ? 1 : -1) : (x < y ? 1 : -1);
+            });
+            table.tBodies[0].append(...sortedRows);
+            table.setAttribute("data-sort-dir", dir);
+        }
+
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete this customer?");
+        }
+    </script>
+</head>
+<body>
+    <h1>CUSTOMERS</h1>
+    <div class="buttons-container">
+        <div class="back-button">
+            <a href="{{ url_for('dashboard.worker_dashboard') }}">Back to Dashboard</a>
+        </div>
+        <div class="add-button">
+            <a href="{{ url_for('customer.add_customer') }}">Add New Customer</a>
+        </div>
+    </div>
+    <table id="customerTable" data-sort-dir="asc">
+        <thead>
+            <tr>
+                <th class="sortable" onclick="sortTable(0)">CUST_ID</th>
+                <th class="sortable" onclick="sortTable(1)">CUST_FIRST_NAME</th>
+                <th class="sortable" onclick="sortTable(2)">CUST_LAST_NAME</th>
+                <th class="sortable" onclick="sortTable(3)">CUST_GENDER</th>
+                <th class="sortable" onclick="sortTable(4)">CUST_YEAR_OF_BIRTH</th>
+                <th class="sortable" onclick="sortTable(5)">CUST_MERITAL_STATUS</th>
+                <th class="sortable" onclick="sortTable(6)">CUST_STREET_ADDRESS</th>
+                <th class="sortable" onclick="sortTable(7)">CUST_POSTAL_CODE</th>
+                <th class="sortable" onclick="sortTable(8)">CUST_CITY</th>
+                <th class="sortable" onclick="sortTable(9)">COUNTRY_ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+                <tr>
+                    <td>{{ customer[0] }}</td>
+                    <td>{{ customer[1] }}</td>
+                    <td>{{ customer[2] }}</td>
+                    <td>{{ customer[3] }}</td>
+                    <td>{{ customer[4] }}</td>
+                    <td>{{ customer[5] }}</td>
+                    <td>{{ customer[6] }}</td>
+                    <td>{{ customer[7] }}</td>
+                    <td>{{ customer[8] }}</td>
+                    <td>{{ customer[9] }}</td>
+                    <td>
+                        <a href="{{ url_for('customer.edit_customer', cust_id=customer[0]) }}">Edit</a>
+                        <form action="{{ url_for('customer.delete_customer', cust_id=customer[0]) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete();">
+                            <button type="submit">Delete</button>
+                        </form>                     
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2196F3; /* Mavi renk */
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus {
+            border-color: #2196F3; /* Mavi renk */
+        }
+
+        button {
+            background-color: #2196F3; /* Mavi renk */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1976D2; /* Daha koyu mavi */
+        }
+
+        button:active {
+            background-color: #2196F3; /* Mavi renk */
+        }
+
+        a {
+            color: #2196F3; /* Mavi renk */
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        input:focus, button:focus {
+            outline: none;
+        }
+
+        .readonly {
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Edit User</h1>
+        <form method="post">
+            <label for="user_id">User ID:</label>
+            <input type="text" id="user_id" name="user_id" value="{{ user.id }}" class="readonly" readonly>
+
+            <label for="user_name">User Name:</label>
+            <input type="text" id="user_name" name="user_name" value="{{ user.name }}" class="readonly" readonly required>
+
+            <label for="user_role">User Role:</label>
+            <select id="user_role" name="user_role" required>
+                <option value="Admin" {% if user.role == 'admin' %}selected{% endif %}>Admin</option>
+                <option value="User" {% if user.role == 'user' %}selected{% endif %}>User</option>
+            </select>
+
+            <label for="user_email">User Email:</label>
+            <input type="email" id="user_email" name="user_email" value="{{ user.user_email }}" class="readonly" readonly required>
+
+            <label for="company_email">Company Email:</label>
+            <input type="email" id="company_email" name="company_email" value="{{ user.cmp_email }}" required>
+
+            <form method="post" action="{{ url_for('personal_info.get_all_user_information') }}">
+                <button type="submit">Save Changes</button>
+            </form>
+        </form>
+
+        <a href="{{ url_for('personal_info.get_all_user_information') }}">Back to User List</a>
+    </div>
+
+</body>
+</html>

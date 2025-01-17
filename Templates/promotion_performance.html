@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promotion Performance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .performance-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+            text-align: center;
+        }
+        h1 { 
+            color: #333; 
+            font-size: 22px; 
+            margin-bottom: 20px; 
+        }
+        .performance-item { 
+            margin: 10px 0; 
+            font-size: 16px; 
+            font-weight: bold; 
+            color: #555; 
+        }
+        .performance-item span { 
+            color: #2196F3; 
+            display: block; 
+            font-size: 18px; 
+            margin-top: 5px; 
+        }
+        .no-data {
+            color: red;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            background-color: #2196F3;
+            border-radius: 4px;
+        }
+        .back-button:hover { 
+            background-color: #1976D2; 
+        }
+    </style>
+</head>
+<body>
+    <div class="performance-container">
+        <h1>Promotion Performance for Promo ID: {{ promo_id }}</h1>
+
+        {% if performance %}
+            <div class="performance-item">
+                UNIT COST: <span>${{ "%.2f"|format(performance[0]) }}</span>
+            </div>
+            <div class="performance-item">
+                UNIT PRICE: <span>${{ "%.2f"|format(performance[1]) }}</span>
+            </div>
+            <div class="performance-item">
+                Total Cost: <span>${{ "%.2f"|format(performance[2]) }}</span>
+            </div>
+            <div class="performance-item">
+                Total Revenue: <span>${{ "%.2f"|format(performance[3]) }}</span>
+            </div>
+            <div class="performance-item">
+                Total Profit: <span>${{ "%.2f"|format(performance[4]) }}</span>
+            </div>
+            <div class="performance-item">
+                Profit Margin: 
+                <span>
+                    {% if performance[3] > 0 %}
+                        {{ "%.2f"|format((performance[4] / performance[3]) * 100) }}%
+                    {% else %}
+                        0.00%
+                    {% endif %}
+                </span>
+            </div>
+        {% else %}
+            <!-- Veri yoksa mesaj göster -->
+            <div class="no-data">No performance data available.</div>
+        {% endif %}
+
+        <a href="{{ url_for('promotions.view_promotions') }}" class="back-button">Back to Promotions</a>
+    </div>
+</body>
+</html>

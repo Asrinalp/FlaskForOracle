@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Stock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header-container h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .header-container .back-button {
+            background-color: #2196F3;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .save-button {
+            width: 107%; /* Increase the width of the Save Changes button */
+        }
+        .header-container .back-button:hover {
+            background-color: #1976D2;
+        }
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45A049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="header-container">
+            <h1>Edit Stock</h1>
+            <a href="{{ url_for('stock.view_stock_status') }}" class="back-button">Back to Table</a>
+        </div>
+        <form method="POST">
+            <label for="product_id">Product ID:</label>
+            <input type="text" id="product_id" name="product_id" value="{{ stock[0] }}" readonly>
+
+            <label for="product_name">Product Name:</label>
+            <input type="text" id="product_name" name="product_name" value="{{ stock[1] }}" readonly>
+
+            <label for="warehouse_id">Warehouse ID:</label>
+            <input type="text" id="warehouse_id" name="warehouse_id" value="{{ stock[2] }}" readonly>
+
+            <label for="quantity_on_hand">Quantity on Hand:</label>
+            <input type="number" id="quantity_on_hand" name="quantity_on_hand" value="{{ stock[3] }}" required>
+
+            <button type="submit" class="save-button">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>
